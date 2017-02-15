@@ -1,5 +1,5 @@
 # archlinux安装
-- 磁盘分区与挂载
+> 磁盘分区与挂载
 ```elixir
 # 查看分区挂载情况
 lsblk 
@@ -25,7 +25,7 @@ mount /dev/sda1 /mnt/boot/EFI
 mkdir /mnt/home
 mount /dev/sda4 /mnt/home
 ```
-- 连接网络并设置软件源：
+> 连接网络并设置软件源：
 ```
 dhcpcd
 ping -c 4 www.baidu.com
@@ -35,13 +35,13 @@ Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 pacman -Syy
 ```
-- 安装基本系统并生成fstab：
+> 安装基本系统并生成fstab：
 ```bash
 pacstrap /mnt base
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cp /mnt/etc/fstab /mnt/etc/fstab.bak #备份fstab
 ```
-- 配置基础系统：
+> 配置基础系统：
 ```bash
 arch-chroot /mnt /bin/bash
 # 设置Locale：
@@ -66,9 +66,8 @@ systemctl enable dhcpcd
 passwd
 ```
 
-- 引导启动
-1. systemd-boot启动
-
+> 引导启动
+- systemd-boot启动
 ```bash
 # 安装
 bootctl --path=/boot/EFI install
@@ -88,14 +87,14 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=PARTUUID=09a7b897-1a0d-4518-b2d8-19da8e89068d rw
 ```
-2. 使用GRUB
-```
+- 使用GRUB
+```bash
 pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/esp --bootloader-id=grub
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-- 退出
+> 退出
 ```bash
 exit # 退回安装环境
 umount -R /mnt/boot
