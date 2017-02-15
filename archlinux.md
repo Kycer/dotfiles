@@ -76,7 +76,7 @@ cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries/arch.conf
 nano /boot/loader/entries/arch.conf
 #获取 PARTUUID
 blkid -s PARTUUID -o value /dev/sda6
-
+#具体内容
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
