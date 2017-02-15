@@ -1,0 +1,15 @@
+
+rofi.lines: 6
+rofi.font: Sans 14
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+rofi.line-margin: 7 
+rofi.padding: 285 
+rofi.width: 110
+rofi.color-enabled: true
+rofi.color-window: #dd333333, #BBSS333333, #BB333333
+#                    bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: #dd333333, #cccccc, #BB333333, #BB333333, #ffffff
+rofi.color-active: #dd333333, #BB333333, #BB333333, #BB333333, #BB333333
+rofi.color-urgent: #ddd333333, #BB333333, #BB333333, #BB333333, #BB333333
+
