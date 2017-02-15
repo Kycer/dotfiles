@@ -26,10 +26,10 @@ mkdir /mnt/home
 mount /dev/sda4 /mnt/home
 ```
 > 连接网络并设置软件源：
-```
+```bash
 dhcpcd
 ping -c 4 www.baidu.com
-
+# 配置源
 nano /etc/pacman.d/mirrorlist
 Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
