@@ -49,37 +49,32 @@ nano /etc/locale.gen  # 去掉前面的  *
 _**en_US.UTF-8 UTF-8
 zh_CN.UTF-8 UTF-8**_
 locale-gen# 生成locale讯息：
-echo LANG=en_US.UTF-8 > /etc/locale.conf # 创建locale.conf：
-
-# 启用pacman彩色显示 去掉Color前面的注释
-nano /etc/pacman.conf 
-# 设置时区：
-ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-# 设置硬件时间：
-hwclock --systohc --utc
-# 设置主机名：
-echo archlinux > /etc/hostname
+echo LANG=en_US.UTF-8 > /etc/locale.conf #创建locale.conf：
+nano /etc/pacman.conf  #启用pacman彩色显示 去掉Color前面的注释
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime #设置时区：
+hwclock --systohc --utc #设置硬件时间：
+#设置主机名：
+echo archlinux > /etc/hostname 
 nano /etc/hosts
-# 开机启动dhcpcd
-systemctl enable dhcpcd
-# 设置Root密码：
+systemctl enable dhcpcd #开机启动dhcpcd
+#设置Root密码：
 passwd
 ```
 
 > 引导启动
 - systemd-boot启动
 ```bash
-# 安装
+#安装
 bootctl --path=/boot/EFI install
 bootctl --path=/boot/EFI update
-# 配置 loader.conf 
+#配置 loader.conf 
 nano /boot/loader/loader.conf 
 timeout 30            #本行是开机时，系统选单的等待时间；
 default arch        #本行是指定运行哪个启动配置文件。
 #配置arch.conf
 cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries/arch.conf
 nano /boot/loader/entries/arch.conf
-# 获取 PARTUUID
+#获取 PARTUUID
 blkid -s PARTUUID -o value /dev/sda6
 
 title Arch Linux
