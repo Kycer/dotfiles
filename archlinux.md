@@ -12,7 +12,7 @@ mkpart primary ext4 24.5G 100% # home
 # 再次查看分区挂载情况
 lsblk 
 # 格式化分区 
-mkfs.fat -F 32 /dev/sda1
+mkfs.fat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 mkfs.ext4 /dev/sda4
 # 格式化swap分区并启用：
