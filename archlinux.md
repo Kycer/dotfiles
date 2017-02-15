@@ -67,7 +67,7 @@ passwd
 ```
 
 - 引导启动
- 1. systemd-boot启动
+1. systemd-boot启动
 
 ```bash
 # 安装
