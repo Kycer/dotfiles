@@ -1,1 +1,1 @@
-# i3wm-config
+# archlinux-i3wm-config
