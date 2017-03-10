@@ -1,25 +1,57 @@
+ -- 不输出到X
 out_to_x no
 out_to_console yes
 background no
 double_buffer no
+  -- 刷新时间
 update_interval 1
+  -- 运行时间，0为一直运行
 total_run_times 0
+-- 强制uft8编码，需xft支持
 override_utf8_locale no
+ -- 缩写字符单位
 short_units yes
+ -- 监视端口
 if_up_strictness address
+ -- cpu数据监测模式，一般选2
 cpu_avg_samples 2
 
 TEXT
 [
 #{ "full_text" : "", "color": "\#BADA55"},
-#{ "full_text": " ${exec curl icanhazip.com}"},
-{ "full_text" : ${if_up eno1}"  ${upspeed eno1}/s  ${downspeed eno1}/s"${else}""${endif}, "color" : "\#94F397" },
-{ "full_text" : ${if_up wlo1}"  ${upspeed wlo1}/s  ${downspeed wlo1}/s"${else}""${endif}, "color" : "\#94F397" },
-{ "full_text" : " ${cpu cpu0}%" , "color" : "\#8BC3E7" },
+# ${addr enp2s0 }
+${if_up enp2s0}
+    { "full_text" : "  ${upspeed enp2s0} /s   ${downspeed enp2s0} /s", "color" : "\#BADA55"},
+${else}
+${if_up wlp3s0b1}
+    { "full_text" : "  ${upspeed wlp3s0b1} /s   ${downspeed wlp3s0b1} /s", "color" : "\#BADA55"},  
+${else}
+  
+${endif}
+#{ "full_text" : " ${cpu cpu0}%" , "color" : "\#8BC3E7" },
 { "full_text" : " ${mem}" , "color" : "\#B987D9" },
-{ "full_text" : " ${fs_used_perc /}%" , "color" : "\#FF9D17" },
-{ "full_text" : " ${fs_used_perc /home}%" , "color" : "\#F3EA0C" },
-{ "full_text" : " ${battery_percent}%" , "color" : "\#A4DC6A" },
+#{ "full_text" : " ${fs_used_perc /}%" , "color" : "\#FF9D17" },
+#{ "full_text" : " ${fs_used_perc /home}%" , "color" : "\#F3EA0C" },
+#{ "full_text" : " ${battery_percent BAT1}%" , "color" : "\#A4DC6A" },
+${if_existing /sys/class/power_supply/AC0/online 0}
+    #{ "full_text" : " ${battery_percent BAT1}%" , "color" : "\#A4DC6A" },
+${else}
+#    { "full_text" : " ${battery_percent BAT1}%" , "color" : "\#A4DC6A" },
+${endif}
+#${if_existing /sys/class/power_supply/AC0/online 0}
+  {"full_text": "","color":"\#859900","separator":false,"separator_block_width":6},
+  {"full_text": "${if_match ${battery_percent BAT1}<20}   ${battery_percent BAT1}%","color":"\#dc322f"},
+  {"full_text":"${else}"},
+  {"full_text":"${if_match ${battery_percent BAT1}<50}   ${battery_percent BAT1}%","color":"\#b58900"},\
+  {"full_text":"${else}"},\
+  {"full_text":"${if_match ${battery_percent BAT1}==100}   ${battery_percent BAT1}%","color":"\#a6a6a6"},\
+  {"full_text":"${else}"},\
+  {"full_text":"${if_match ${battery_percent BAT1}>80}   ${battery_percent BAT1}%","color":"\#a6a6a6"},\
+  {"full_text":"${else}"},\
+  {"full_text":"${if_match ${battery_percent BAT1}>=50}   ${battery_percent BAT1}%","color":"\#a6a6a6"},\
+  {"full_text":"${else}"},\
+  {"full_text":"${endif}${endif}${endif}${endif}${endif}"},\
+{ "full_text" : " : ${exec amixer sget Master,0 | egrep -o '[0-9]+%'} " , "color" : "\#E6B2C0" },
 { "full_text" : " ${time %Y/%m/%d %a}" , "color" : "\#ff797b" },
-{ "full_text" : " ${time %H:%M}" , "color" : "\#8BADF9" }
+{ "full_text" : " ${time %H:%M} " , "color" : "\#8BADF9" }
 ],

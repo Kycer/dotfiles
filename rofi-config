@@ -4,12 +4,14 @@ rofi.font: Sans 14
 rofi.separator-style: none
 rofi.hide-scrollbar: true
 rofi.line-margin: 7 
-rofi.padding: 285 
-rofi.width: 110
-rofi.color-enabled: true
-rofi.color-window: #dd333333, #BBSS333333, #BB333333
-#                    bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
-rofi.color-normal: #dd333333, #cccccc, #BB333333, #BB333333, #ffffff
-rofi.color-active: #dd333333, #BB333333, #BB333333, #BB333333, #BB333333
-rofi.color-urgent: #ddd333333, #BB333333, #BB333333, #BB333333, #BB333333
+rofi.padding: 300px 
+rofi.width: 100%
+rofi.location: 0
 
+rofi.color-enabled: true
+# #                  'background', 'border', 'separator'
+rofi.color-window: argb:bb2d303b, argb:bb2d303b,argb:bb2d303b
+# # State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: argb:00000000, #c1c1c1, argb:00000000, #394249,#ffffff
+rofi.color-urgent: argb:00000000, #ffa0a0, argb:00000000, #394249,#80cbc4
+rofi.color-active: argb:00000000, #80cbc4, argb:00000000, #394249,#ff1844
