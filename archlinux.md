@@ -96,3 +96,16 @@ umount -R /mnt/boot
 umount -R /mnt
 reboot
 ```
+
+> 安装后配置
+```bash
+pacman -S pulseaudio alsa-utils xf86-video-ati # 安装声卡驱动   显卡驱动
+pacman -S xorg-server xorg-utils # 安装Xorg
+pacman -S ttf-dejavu wqy-zenhei wqy-microhei  # 安装常用字体
+pacman -S fcitx tar firefox firefox-i18n-zh-cn
+
+# 下载flash放到指定文件
+
+# 桌面安装
+pacman -S i3wm
+```
