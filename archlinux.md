@@ -99,13 +99,15 @@ reboot
 
 > 安装后配置
 ```bash
-pacman -S pulseaudio alsa-utils xf86-video-ati # 安装声卡驱动   显卡驱动
+pacman -S pulseaudio alsa-utils xf86-video-ati  nm-applet # 安装声卡驱动   显卡驱动 网路管理
 pacman -S xorg-server xorg-utils # 安装Xorg
 pacman -S ttf-dejavu wqy-zenhei wqy-microhei  # 安装常用字体
-pacman -S fcitx tar firefox firefox-i18n-zh-cn
-
+pacman -S fcitx tar firefox firefox-i18n-zh-cn git sudo 
+# 编译时
+pacman -S --needed base-devel
 # 下载flash放到指定文件
 
-# 桌面安装
-pacman -S i3wm
+# 桌面安装 （下载字体放到/home/yksoul/.local/share/fonts/）
+# rofi(/home/yksoul/.local/rofi/config)
+pacman -S i3wm volumeicon feh compton rofi
 ```
