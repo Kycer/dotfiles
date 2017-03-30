@@ -32,20 +32,6 @@ hide_edge_borders both
 # 在三种边框类型中切换
 bindsym $mod+b border toggle
 
-# 颜色设置
-set $black	#002B36
-set $white	#839496
-set $gray	#CCCCCC
-set $darkgray	#666666
-set $green 	#799F26
-set $blue	#4D73AA
-set $purple	#8473A7
-set $red	#B58900
-set $orange	#E59847
-set $cyan	#2AA198
-set $dark	#00252E
-
-
 
 # 字体
 font pango:monospace 10
@@ -201,6 +187,20 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+
+# 颜色设置
+set $black	#002B36
+set $white	#839496
+set $gray	#CCCCCC
+set $darkgray	#666666
+set $green 	#799F26
+set $blue	#4D73AA
+set $purple	#8473A7
+set $red	#B58900
+set $orange	#E59847
+set $cyan	#2AA198
+set $dark	#00252E
 
 # 窗口颜色                边框    背景    文字    提示
 client.focused          #333333 #333333 #FFFFFF #333333
