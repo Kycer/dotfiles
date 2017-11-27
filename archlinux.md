@@ -5,21 +5,22 @@
 lsblk 
 # parted 划分
 parted /dev/sda
+mktable  # 磁盘格式填写ESP
 mkpart esp fat32 1MiB 513MiB #建立esp分区
-mkpart primary ext4 513M 20.5G # /
-mkpart primary linux-swap 20.5G 24.5G # swap
-mkpart primary ext4 24.5G 100% # home
+mkpart primary linux-swap 513M  8G # swap
+mkpart primary ext4 8G 20.5G # /
+mkpart primary ext4 20.5G 100% # home
 # 再次查看分区挂载情况
 lsblk 
 # 格式化分区 
 mkfs.fat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 # 格式化swap分区并启用：
-mkswap /dev/sda3
-swapon /dev/sda3
+mkswap /dev/sda2
+swapon /dev/sda2
 # 挂载分区：
-mount /dev/sda2 /mnt
+mount /dev/sda3 /mnt
 mkdir /mnt/boot/EFI
 mount /dev/sda1 /mnt/boot/EFI
 mkdir /mnt/home
@@ -85,7 +86,7 @@ options root=PARTUUID=09a7b897-1a0d-4518-b2d8-19da8e89068d rw
 - 使用GRUB
 ```bash
 pacman -S grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/esp --bootloader-id=grub
+grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=arch_grub --recheck 
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
@@ -96,7 +97,13 @@ umount -R /mnt/boot
 umount -R /mnt
 reboot
 ```
-
+> 基本配置
+- 添加用户
+```
+useradd -m -g "初始组" -G "附加组" -s "登陆shell" "用户"
+useradd -m -g users -s /bin/bash archie
+```
+- 
 > 安装后配置
 ```bash
 pacman -S pulseaudio alsa-utils xf86-video-ati  nm-applet # 安装声卡驱动   显卡驱动 网路管理
