@@ -1,13 +1,11 @@
 [Unit]
-Description=aria2c -- file download manager
+Description=Aria2 Service
 After=network.target
 
 [Service]
 Type=forking
-User=%i
 WorkingDirectory=%h
-Environment=VAR=/var/%i
-ExecStart=/usr/bin/aria2c --daemon --enable-rpc --rpc-listen-all --rpc-allow-origin-all -c -D --conf-path=/etc/aria2/aria2.conf
+ExecStart=/usr/bin/aria2c --daemon --enable-rpc --rpc-listen-all --rpc-allow-origin-all -c -D  --conf-path=/home/yksoul/.config/aria2/aria2.conf
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
