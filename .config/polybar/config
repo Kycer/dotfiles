@@ -59,7 +59,7 @@ interval = 25
 mount-0 = /
 # label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
 fixed-values = true
-label-mounted = "%{F#CB8119}% %free%"
+label-mounted = "%{F#CB8119} %free%"
 
 [module/bspwm]
 type = internal/bspwm
