@@ -2,18 +2,19 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-export LANG=zh_CN.UTF-8
-export LANGUAGE=zh_CN:en_US
-export LC_CTYPE=en_US.UTF-8
-export VISUAL="nano" 
-
+  export ZSH=/home/yksoul/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="nebirhos"
+ZSH_THEME="agnoster"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -57,7 +58,9 @@ ZSH_THEME="nebirhos"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,10 +93,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+export LC_CTYPE=en_US.UTF-8
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias ssr='ssr(){sudo python /opt/Apps/ssr/shadowsocksr/shadowsocks/local.py -d $1 -c /opt/Apps/ssr/$2.json ; };ssr'
+
 alias hp="http_proxy=http://localhost:8118"
 
 gp=" --config http.proxy=localhost:8118"
-
-
-export PATH="$HOME/.node_modules/bin:$PATH"
-export TERM=xterm-256color
