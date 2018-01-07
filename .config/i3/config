@@ -1,10 +1,9 @@
 # 设置mod键
 set $mod Mod4
 # 开机启动
-exec --no-startup-id  volumeicon
 exec --no-startup-id  feh --bg-fill ~/Pictures/1.jpg
 exec --no-startup-id fcitx
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 exec --no-startup-id compton
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -45,7 +44,7 @@ floating_modifier $mod
 
 
 # 虚拟终端
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec urxvt
 # 关闭窗口
 bindsym $mod+Shift+q kill
 # 启动 rofi
@@ -55,7 +54,7 @@ bindsym $mod+shift+d exec --no-startup-id rofi -show run
 # 焦点跟随鼠标移动
 focus_follows_mouse no
 # 文件管理
-bindsym $mod+e exec --no-startup-id Thunar, workspace $WS5
+bindsym $mod+e exec --no-startup-id pcmanfm, workspace $WS5
 # Xmind
 bindsym $mod+i exec  --no-startup-id  cd /opt/xmind-8/XMind_amd64/ && ./XMind
 # scrot
@@ -66,6 +65,7 @@ bindsym --release Control+Mod1+A exec scrot -s -b $HOME/Pictures/scrot/scrot_$(d
 
 assign [class="Thunar"] → $WS5
 assign [class="Chromium"] → $WS2
+assign [class="jetbrains-idea"] → $WS3
 assign [class="Lxappearance"] → $WS8
 assign [class="netease-cloud-music"] → $WS6
 assign [class="electronic-wechat"] → $WS4
@@ -74,35 +74,36 @@ assign [class="electronic-wechat"] → $WS4
 # for_window [class="Thunar"] floating enable resize set 1100 680
 # for_window [class="netease-cloud-music"] floating enable resize set 1100 680
 for_window [class="netease-cloud-music"] floating enable
+for_window [class="URxvt"] floating enable
 
 #for_window [class="Chromium"] layout tabbed, focus
 
 # 更改窗口焦点
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-# 更改窗口焦点
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# 更改窗口位置
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+#更改窗口焦点
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # 更改窗口位置
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# 更改窗口位置
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
 
 # 窗口分割方式（h：水平 v:垂直）
-bindsym $mod+h split h
+bindsym $mod+n split h
 bindsym $mod+v split v
 
 # 窗口全屏显示
@@ -123,6 +124,10 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 # 窗口切换为粘滞
 #bindsym $mod+g sticky toggle
+# 把当前窗口设为便笺本
+bindsym $mod+minus move scratchpad
+# 呼出第一个便笺本
+bindsym $mod+plus scratchpad show
 
 # 工作区间的切换
 bindsym $mod+1 workspace $WS1

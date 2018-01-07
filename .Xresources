@@ -1,43 +1,36 @@
-URxvt.preeditType:Root
-!!调整此处设置输入法
-URxvt.inputMethod:fcitx
-!!颜色设置
-URxvt.depth:32
+Xft.dpi:                    96
+Xft.rgba:                   rgba
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
 
-!!透明度
-URxvt.inheritPixmap:true
+! 基础设置
+URxvt.title:Rxvt-Unicode
+URxvt.preeditType:Root
+URxvt.inputMethod:fcitx
+URxvt.depth:32
+URxvt.fading: 0
 URxvt.shading: 20
 URxvt.geometry: 90x30
-URxvt.transparent: true
-URxvt.fading: 0
+URxvt.lineSpace: 0
+URxvt.internalBorder: 3
+URxvt.inheritPixmap:false
+URxvt.transparent: false
 ! URxvt.urgentOnBell: true
 ! URxvt.visualBell: true
 URxvt.loginShell: true
-URxvt.saveLines: 50
-URxvt.internalBorder: 3
-URxvt.lineSpace: 0
  
-! Fonts
-URxvt.allow_bold: false
+! 字体设置
 URxvt.multichar_encoding: utf-8
 URxvt.imLocale: zh_CN.UTF-8
-!!字体设置
-Xft.dpi:96
-URxvt.font:xft:Noto Mono for Powerline:antialias=True:pixelsize=18
-URxvt.boldfont:xft:Noto Mono for Powerline antialias=True:pixelsize=18
-
-! Fix font space
+URxvt.font:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=15,xft:Source\ Han\ Serif\ CN:size=15:style=Regular:antialias=true
+URxvt.boldfont:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=15,xft:Source\ Han\ Serif\ CN:size=15:style=Regular:antialias=true
 !URxvt*letterSpace: 1
 
-! Scrollbar
+! 滚动条
 URxvt.scrollStyle: rxvt
 URxvt.scrollBar: false
- 
-! Perl extensions
-URxvt.perl-ext-common: default,matcher
-URxvt.matcher.button: 1
-URxvt.urlLauncher: /usr/bin/google-chrome-stable
- 
+URxvt.saveLines: 1000
+
 ! Cursor
 URxvt.cursorBlink: true
 URxvt.cursorColor: #657b83
@@ -46,49 +39,70 @@ URxvt.cursorUnderline: false
 ! Pointer
 URxvt.pointerBlank: true
  
-*background: #002b36
-*foreground: #657b83
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
- 
-!! black dark/light
-*color0: #073642
-*color8: #002b36
- 
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
- 
-!! green dark/light
-*color2: #859900
-*color10: #586e75
- 
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
- 
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
- 
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
- 
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
- 
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+! Perl extensions
+URxvt.perl-ext-common: default,tabbed,matcher,keyboard-select,clipboard,url-select
 
+! 点击打开url
+URxvt.url-launcher: chromium
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
 
+! 标签窗口 
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
 
+! 选择搜索
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.C-s: perl:keyboard-select:search
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
+! 选择打开url 
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: chromium
+URxvt.url-select.underline: true
+ 
+
+! special
+*.foreground:   #9ba2b2
+*.background:   [90]#1e2127
+*.cursorColor:  #9ba2b2
+
+! black
+*.color0:       [95]#1e2127
+*.color8:       #1e2127
+
+! red
+*.color1:       #d95360
+*.color9:       #d95360
+
+! green
+*.color2:       #86bb62
+*.color10:      #86bb62
+
+! yellow
+*.color3:       #c7894f
+*.color11:      #c7894f
+
+! blue
+*.color4:       #4d9cee
+*.color12:      #4d9cee
+
+! magenta
+*.color5:       #b959d8
+*.color13:      #b959d8
+
+! cyan
+*.color6:       #44a8b6
+*.color14:      #44a8b6
+
+! white
+*.color7:       #9ba2b2
+*.color15:      #9ba2b2
 
 !! rofi设置
 rofi.theme:sidebar.rasi
-rofi.font: Noto Mono for Powerline 14
+rofi.font: Source\ Han\ Serif\ CN 12
