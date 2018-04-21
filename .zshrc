@@ -101,6 +101,8 @@ export LC_CTYPE=en_US.UTF-8
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=xim
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -110,5 +112,6 @@ export NVM_DIR="$HOME/.nvm"
 alias ssr='ssr(){sudo python /opt/Apps/ssr/shadowsocksr/shadowsocks/local.py -d $1 -c /opt/Apps/ssr/$2.json ; };ssr'
 
 alias hp="http_proxy=http://localhost:8118"
+alias vimi3="vim  ~/.config/i3/config" 
 
 gp=" --config http.proxy=localhost:8118"

@@ -22,8 +22,8 @@ URxvt.loginShell: true
 ! 字体设置
 URxvt.multichar_encoding: utf-8
 URxvt.imLocale: zh_CN.UTF-8
-URxvt.font:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=18,xft:Source\ Han\ Serif\ CN:size=18:style=Regular:antialias=true
-URxvt.boldfont:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=18,xft:Source\ Han\ Serif\ CN:size=18:style=Regular:antialias=true
+URxvt.font:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=15,xft:WenQuanYi\ Zen\ Hei\ Mono:size=14:style=Medium:antialias=true
+URxvt.boldfont:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=15,xft:WenQuanYi\ Zen\ Hei\ Mono:size=14:style=Medium:antialias=true
 !URxvt*letterSpace: 1
 
 ! 滚动条
@@ -67,7 +67,9 @@ URxvt.url-select.underline: true
 
 !! rofi设置
 rofi.theme:onedark.rasi
-rofi.font: Source\ Han\ Serif\ CN 12
+rofi.font: WenQuanYi\ Zen\ Hei\ Mono 12
+
+
 ! special
 *.foreground:   #c0c5ce
 *.background:   [80]#2b303b
