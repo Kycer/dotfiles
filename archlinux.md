@@ -1,17 +1,17 @@
-# archlinux安装
+Arch linux 安装和配置
+===================
+- - -
 > 磁盘分区与挂载
-```elixir
+```bash
 # 查看分区挂载情况
 lsblk 
-# parted 划分
+# parted 划分  删除：rm
 parted /dev/sda
 mktable  # 磁盘格式填写ESP
 mkpart esp fat32 1MiB 513MiB #建立esp分区
 mkpart primary linux-swap 513M  8G # swap
 mkpart primary ext4 8G 20.5G # /
 mkpart primary ext4 20.5G 100% # home
-# 再次查看分区挂载情况
-lsblk 
 # 格式化分区 
 mkfs.fat -F32 /dev/sda1
 mkfs.ext4 /dev/sda3
@@ -21,13 +21,14 @@ mkswap /dev/sda2
 swapon /dev/sda2
 # 挂载分区：
 mount /dev/sda3 /mnt
-mkdir /mnt/boot/EFI
+mkdir -p /mnt/boot/EFI
 mount /dev/sda1 /mnt/boot/EFI
 mkdir /mnt/home
 mount /dev/sda4 /mnt/home
 ```
 > 连接网络并设置软件源：
 ```bash
+# 配置网络
 dhcpcd
 ping -c 4 www.baidu.com
 # 配置源
@@ -47,19 +48,24 @@ cp /mnt/etc/fstab /mnt/etc/fstab.bak #备份fstab
 arch-chroot /mnt /bin/bash
 # 设置Locale：
 nano /etc/locale.gen  # 去掉前面的  *
-_**en_US.UTF-8 UTF-8
-zh_CN.UTF-8 UTF-8**_
-locale-gen# 生成locale讯息：
-echo LANG=en_US.UTF-8 > /etc/locale.conf #创建locale.conf：
-nano /etc/pacman.conf  #启用pacman彩色显示 去掉Color前面的注释
-ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime #设置时区：
-hwclock --systohc --utc #设置硬件时间：
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+# 生成locale讯息：
+locale-gen
+#创建locale.conf：
+echo LANG=en_US.UTF-8 > /etc/locale.conf 
+#设置时区和设置硬件时间：
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
+hwclock --systohc --utc 
 #设置主机名：
 echo archlinux > /etc/hostname 
 nano /etc/hosts
-systemctl enable dhcpcd #开机启动dhcpcd
+#开机启动dhcpcd
+systemctl enable dhcpcd 
 #设置Root密码：
 passwd
+#添加用户 useradd -m -g "初始组" -G "附加组" -s "登陆shell" "用户"
+useradd -m -g users -s /bin/bash name
 ```
 
 > 引导启动
@@ -97,24 +103,15 @@ umount -R /mnt/boot
 umount -R /mnt
 reboot
 ```
-> 基本配置
-- 添加用户
-```
-useradd -m -g "初始组" -G "附加组" -s "登陆shell" "用户"
-useradd -m -g users -s /bin/bash archie
-```
-- 
 > 安装后配置
 ```bash
-pacman -S pulseaudio alsa-utils xf86-video-ati  nm-applet # 安装声卡驱动   显卡驱动 网路管理
-pacman -S xorg-server xorg-utils # 安装Xorg
-pacman -S ttf-dejavu wqy-zenhei wqy-microhei  # 安装常用字体
-pacman -S fcitx tar firefox firefox-i18n-zh-cn git sudo 
-# 编译时
-pacman -S --needed base-devel
-# 下载flash放到指定文件
-
-# 桌面安装 （下载字体放到/home/yksoul/.local/share/fonts/）
-# rofi(/home/yksoul/.local/rofi/config)
-pacman -S i3wm volumeicon feh compton rofi
+ # 安装基本软件
+pacman -S alsa-utils xf86-video-ati xorg-server ttf-dejavu wqy-zenhei fcitx-im tar git sudo  --needed base-devel feh compton rofi wireless_tools
+# 在 /etc/pacman.conf 安装 archlinuxcn-keyring 包以导入 GPG key
+[archlinuxcn]
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+#安装yaourt
+pacman -Syu yaourt
+# 安装i3wm桌面
+yaourt -S i3wm-git polybar
 ```
