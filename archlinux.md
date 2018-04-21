@@ -106,7 +106,7 @@ reboot
 > 安装后配置
 ```bash
  # 安装基本软件
-pacman -S alsa-utils xf86-video-ati xorg-server ttf-dejavu wqy-zenhei fcitx-im tar git sudo  --needed base-devel feh compton rofi wireless_tools
+pacman -S alsa-utils xf86-video-ati xorg-server xorg-xprop ttf-dejavu wqy-zenhei fcitx-im tar git --needed base-devel feh compton rofi wireless_tools pcmanfm dunstrc gvfs gvfs-mtp rxvt-unicode urxvt-perls lightdm lightdm-gtk-greeter chromium
 # 在 /etc/pacman.conf 安装 archlinuxcn-keyring 包以导入 GPG key
 [archlinuxcn]
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
