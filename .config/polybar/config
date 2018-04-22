@@ -1,7 +1,56 @@
+##############################################################################
+#    polybar  配置                                                           #
+#############################################################################
+# 1.统一颜色配置                                                              #
+#############################################################################
 [colors]
-;background = ${xrdb:color0:#222}
-background = #8c242424
-background2 = #CC242424
+# bar
+bar-bg = #E6242424
+bar-fg = #dfdfdf
+bar-bg-alt = 
+bar-fg-alt = #555
+# i3
+i3-bg = #808080
+i3-fg = #dfdfdf
+i3-focused-bg = #242424
+i3-focused-ul = #808080
+i3-urgent-bg = #bd2c40
+# date
+date-ul = #9A32DB
+date-fg = #E66F72
+# xkeyboard
+key-fg = #444444
+key-ul = #e60053
+# fs
+home-fg = #DBD40D
+root-fg = #CB8119
+#cpu
+cpu-pf-fg = #ffffff
+cpu-ul = #f90000
+#内存
+memory-pf-fg = #cca4e3
+memory-fg = #ff5c57
+memory-bar-used-empty-fg = #444444
+memory-bar-used-fg0 = #5af78e
+memory-bar-used-fg1 = #5af78e
+memory-bar-used-fg2 = #f3f99d
+memory-bar-used-fg3 = #ff5c57
+# 网络
+eth-c-ul = #55aa55
+eth-c-pf-fg = #55aa55
+eth-c-fg = #85DC88
+up-c-pf-fg = #85DC88
+up-c-fg = #85DC88
+down-c-pf-fg = #85DC88
+down-c-fg = #85DC88
+# 音量
+vl-pf-fg = #ffffff
+vl-ul = #aaaaaa
+vl-fg =  #cca4e3
+vl-mt-fg = #555555
+
+background = #333333
+background2 = #242424
 background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #55
@@ -16,158 +65,201 @@ margin-bottom = 5
 [settings]
 throttle-output = 5
 throttle-output-for = 10
-
-; Time in milliseconds that the input handler will wait between processing events
 throttle-input-for = 30
-
-; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
 screenchange-reload = true
 
+#############################################################################
+# 2.bar设置                                                                 #
+############################################################################
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+[bar/top]
+;monitor = ${env:MONITOR}
+monitor-strict = true
+dpi = 72
+bottom = false
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+background = ${colors.bar-bg}
+foreground = ${colors.bar-fg}
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+overline-size = 0
+overline-color = #f00
+underline-size = 3
+underline-color = #00f
 
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+border-bottom-size = 0
+border-bottom-color = ${colors.bar-bg}
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
 
-[module/filesystem-home]
-type = internal/fs
-interval = 30
 
-mount-0 = /home
-fixed-values = true
-label-mounted = "%{F#DBD40D} %free%"
+font-0 = monospace:pixelsize=13
+font-1 = Font Awesome 5 Free:pixelsize=14
+font-2 = Font Awesome 5 Free Solid:pixelsize=14
+font-3 = Font Awesome 5 Brands:pixelsize=14
+font-4 = WenQuanYi Zen Hei Mono:pixelsize=14
 
-[module/filesystem-slash]
-type = internal/fs
-interval = 25
+modules-left =  i3 xwindow
+modules-center = date
+modules-right = backlight volume cpu battery powermenu
 
-mount-0 = /
-# label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
-fixed-values = true
-label-mounted = "%{F#CB8119} %free%"
+# tray-position = right
+# tray-padding = 4
 
-[module/bspwm]
-type = internal/bspwm
 
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+[bar/bottom]
+;monitor = ${env:MONITOR}
+monitor-strict = true
+dpi = 72
+bottom = true
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
 
-label-occupied = %index%
-label-occupied-padding = 2
+background = ${colors.bar-bg}
+foreground = ${colors.foreground}
 
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+overline-size = 0
+overline-color = #f00
+underline-size = 0
+underline-color = #00f
 
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
 
+spacing = 1
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = monospace:pixelsize=13
+font-1 = Font Awesome 5 Free:pixelsize=14
+font-2 = Font Awesome 5 Free Solid:pixelsize=14
+font-3 = Font Awesome 5 Brands:pixelsize=14
+font-4 = WenQuanYi Zen Hei Mono:pixelsize=14
+
+modules-left = filesystem-slash filesystem-home memory
+modules-center = networkspeedup networkspeeddown
+modules-right = eth temperature xkeyboard
+
+;tray-position = right
+;tray-padding = 3
+
+#############################################################################
+# 3.模块设置                                                                 #
+############################################################################
+
+# i3wm模块
 [module/i3]
 type = internal/i3
+# <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+# <label-mode> (default)
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 strip-wsnumbers = true
 pin-workspaces = true
 
-label-mode-padding = 2
-
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode = %mode%
+label-mode-padding = 3
+label-mode-foreground = ${colors.i3-fg}
+label-mode-background = ${colors.i3-bg}
 
 label-focused = %name%
-label-focused-background = ${colors.background2}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-background = ${colors.i3-focused-bg}
+label-focused-underline = ${colors.i3-focused-ul}
+label-focused-padding = 3
 
-label-unfocused = %name%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused = %index%:%name%
+label-unfocused-padding = 3
 
-label-urgent = %name%!
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent = %index%:%name%
+label-urgent-background = ${colors.i3-urgent-bg}
+label-urgent-padding = 3
 
 label-visible = %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
+label-visible-background = ${colors.i3-focused-bg}
+label-visible-underline = ${colors.i3-focused-ul}
+label-visible-padding = 3
 
+# 窗口标题
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
 
-[module/mpd]
-type = internal/mpd
+# 时间显示
+[module/date]
+type = internal/date
+interval = 1
 
-format-online = " <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <label-song>  <bar-progress>"
+format = <label>
+format-prefix = " "
+format-underline = ${colors.date-ul}
+format-foreground = ${colors.date-fg}
 
-label-song-maxlen = 40
-label-song-ellipsis = true
-label-offline = offline
+date = "%Y-%m-%d "
+date-alt = "%Y-%m-%d"
+time = "%H:%M"
+time-alt = "%H:%M:%S %A"
 
-icon-prev = %{F#5b}%{F-}
-icon-seekb = %{F#5b}%{F-}
-icon-stop = %{F#5b}%{F-}
-icon-play = %{F#5b}%{F-}
-icon-pause = %{F#5b}%{F-}
-icon-next = %{F#5b}%{F-}
-icon-seekf = %{F#5b}%{F-}
+label = %date% %time%
+label-font = 2
 
-icon-random = 
-icon-repeat = 
+# 键盘
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " "
+format-prefix-foreground = ${colors.key-fg}
+format-prefix-underline = ${colors.key-ul}
+label-layout = %layout%
+label-layout-underline = ${colors.key-ul}
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.key-ul}
+label-indicator-underline = ${colors.key-ul}
 
-toggle-on-foreground = ${colors.primary}
-toggle-off-foreground = #66
+# 文件系统
+[module/filesystem-home]
+type = internal/fs
+interval = 30
+fixed-values = true
 
-bar-progress-width = 10
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
+mount-0 = /home
 
-[module/xbacklight]
-type = internal/xbacklight
+label-mounted = "%free%"
+format-mounted-prefix = " "
+# format-mounted-underline = ${colors.home-fg}
+format-mounted-foreground = ${colors.home-fg}
+[module/filesystem-slash]
+type = internal/fs
+interval = 30
+fixed-values = true
 
-format = <label> <bar>
-label = BL
+mount-0 = /
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+label-mounted = "%free%"
+format-mounted-prefix = " "
+# format-mounted-underline = ${colors.home-fg}
+format-mounted-foreground = ${colors.root-fg}
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
+#CPU显示
 [module/cpu]
 type = internal/cpu
 interval = 2
 format = <ramp-coreload>
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #f90000
+format-prefix = "  "
+format-prefix-foreground = ${colors.cpu-pf-fg}
+format-underline = ${colors.cpu-ul}
 label = %percentage%
 ramp-coreload-0 = %{F#5b}▁%{F-}
 ramp-coreload-1 = %{F#5b}▂%{F-}
@@ -178,24 +270,29 @@ ramp-coreload-5 = %{F#ff5c57}▆%{F-}
 ramp-coreload-6 = %{F#ff5c57}▇%{F-}
 ramp-coreload-7 = %{F#ff5c57}█%{F-}
 
+# 内存显示
 [module/memory]
 type = internal/memory
 interval = 2
 format = <label> <bar-used>
-format-prefix = 
-format-prefix-foreground = #cca4e3
-;format-underline = #4bffdc
-label = "%{F#ff5c57} %gb_used%"
-bar-used-width = 30
-bar-used-foreground-0 = #5af78e
-bar-used-foreground-1 = #5af78e
-bar-used-foreground-2 = #f3f99d
-bar-used-foreground-3 = #ff5c57
+format-prefix = " "
+# format-prefix-foreground = ${colors.memory-pf-fg}
+format-foreground = ${colors.memory-fg}
+
+label = %percentage_used%%
+
+bar-used-width = 10
 bar-used-fill = 
 bar-used-empty = 
-bar-used-empty-foreground = #444444
-bar-used-indicator =
+bar-used-indicator = 
+bar-used-empty-foreground = ${colors.memory-bar-used-empty-fg}
+bar-used-foreground-0 = ${colors.memory-bar-used-fg0}
+bar-used-foreground-1 = ${colors.memory-bar-used-fg1}
+bar-used-foreground-2 = ${colors.memory-bar-used-fg2}
+bar-used-foreground-3 = ${colors.memory-bar-used-fg3}
 
+
+# Wifi
 [module/wlan]
 type = internal/network
 interface = wlp2s0
@@ -219,46 +316,54 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
+# 网路
 [module/eth]
 type = internal/network
 interface = enp2s0
-interval = 3.0
-
-# format-connected-underline = #55aa55
-format-connected-prefix =
-format-connected-prefix-foreground = 
-label-connected = "%{F#85DC88}  %upspeed:7%   %downspeed:7%   %local_ip%"
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/date]
-type = internal/date
 interval = 1
 
-date =
-date-alt = "%{F#E66F72} %Y-%m-%d %A"
+format-connected-underline = ${colors.eth-c-ul}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.eth-c-pf-fg}
+label-connected = "%local_ip%"
+label-connected-foreground = ${colors.eth-c-fg}
 
-time = "%{F#7B9ADA} %H:%M"
-time-alt = "%{F#E66F72}%H:%M:%S"
+[module/networkspeedup]
+type = internal/network
+interface = enp2s0
+interval = 1
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.up-c-pf-fg}
+label-connected = %upspeed:7%
+label-connected-foreground = ${colors.up-c-fg}
 
-format-underline = #9A32DB
+[module/networkspeeddown]
+type = internal/network
+interface = enp2s0
+interval = 1
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.down-c-pf-fg}
+label-connected = %downspeed:7%
+label-connected-foreground = ${colors.down-c-fg}
 
-label = %date% %time%
-
+# 声音
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-label-volume = ""
-label-volume-foreground = #cca4e3
+format-volume = <label-volume>
+# format-volume = <label-volume> <bar-volume>
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = "muted"
+format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.vl-pf-fg}
+format-volume-underline  = ${colors.vl-ul}
+label-volume = "%percentage%%"
+label-volume-foreground = ${colors.vl-fg}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.vl-mt-fg}
+label-muted = "静音"
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #5af78e
@@ -269,15 +374,16 @@ bar-volume-foreground-4 = #5af78e
 bar-volume-foreground-5 = #f3f99d
 bar-volume-foreground-6 = #ff5c57
 bar-volume-gradient = false
-bar-volume-indicator = │
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = #ff
+bar-volume-indicator = 
+bar-volume-indicator-font = 3
+bar-volume-indicator-foreground = #cca4e3
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 3
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 3
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+# 电池
 [module/battery]
 type = internal/battery
 battery = BAT1
@@ -285,7 +391,7 @@ adapter = AC
 full-at = 98
 ; time-format = "%H%{F#92}%M%{F-}"
 
-label-discharging = %percentage% %
+label-discharging = %percentage%%
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #f3f99d
@@ -312,6 +418,30 @@ animation-charging-4 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
+# 亮度显示
+[module/backlight]
+type = internal/backlight
+# $ ls -1 /sys/class/backlight/
+card = radeon_bl0
+
+# Available tags:
+#   <label> (default) <ramp> <bar>
+format = <label>
+format-prefix = "  "
+label = %percentage%%
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
+# 温度
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -331,7 +461,7 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-
+# 电源
 [module/powermenu]
 type = custom/menu
 
@@ -366,80 +496,30 @@ menu-3-0-exec = i3-msg exit
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
 
-[bar/top]
-;monitor = ${env:MONITOR}
-monitor-strict = true
-dpi = 72
-bottom = false
-width = 100%
-height = 30
-offset-x = 0
-offset-y = 0
+# mpd 音乐播放
+[module/mpd]
+type = internal/mpd
+format-online = " <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <label-song>  <bar-progress>"
+label-song-maxlen = 40
+label-song-ellipsis = true
+label-offline = offline
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+icon-prev = %{F#5b}%{F-}
+icon-seekb = %{F#5b}%{F-}
+icon-stop = %{F#5b}%{F-}
+icon-play = %{F#5b}%{F-}
+icon-pause = %{F#5b}%{F-}
+icon-next = %{F#5b}%{F-}
+icon-seekf = %{F#5b}%{F-}
 
-overline-size = 0
-overline-color = #f00
-underline-size = 3
-underline-color = #00f
+icon-random = 
+icon-repeat = 
 
-border-bottom-size = 0
-border-bottom-color = ${colors.background}
+toggle-on-foreground = ${colors.primary}
+toggle-off-foreground = #66
 
-spacing = 1
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 2
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
 
-font-0 = monospace:pixelsize=13
-font-1 = FontAwesome:pixelsize=14
-font-2 = Source Han Serif CN:pixelsize=14
-
-modules-left =  i3 xwindow
-modules-center = date
-modules-right = eth xkeyboard backlight battery powermenu
-
-tray-position = right
-tray-padding = 4
-
-
-[bar/bottom]
-;monitor = ${env:MONITOR}
-monitor-strict = true
-dpi = 72
-bottom = true
-width = 100%
-height = 25
-offset-x = 0
-offset-y = 0
-
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-overline-size = 0
-overline-color = #f00
-underline-size = 0
-underline-color = #00f
-
-border-bottom-size = 0
-border-bottom-color = ${colors.background}
-
-spacing = 1
-padding-left = 2
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = monospace:pixelsize=13
-font-1 = FontAwesome:pixelsize=14
-font-2 = Source Han Serif CN:pixelsize=14
-
-modules-left = filesystem-slash filesystem-home
-modules-center = 
-modules-right = volume temperature cpu memory
-
-tray-position = right
-tray-padding = 3
