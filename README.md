@@ -1,1 +1,1 @@
-# archlinux-i3wm-config
+# Kycer's dotfiles
