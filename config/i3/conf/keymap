@@ -1,0 +1,159 @@
+
+
+# _
+#| | _____ _   _ _ __ ___   __ _ _ __
+#| |/ / _ \ | | | '_ ` _ \ / _` | '_ \
+#|   <  __/ |_| | | | | | | (_| | |_) |
+#|_|\_\___|\__, |_| |_| |_|\__,_| .__/
+#          |___/                |_|
+#
+
+
+# 重新加载配置
+bindsym $mod+Shift+c reload
+# 重新载入
+bindsym $mod+Shift+r restart
+
+# 关闭窗口
+bindsym $mod+Shift+q kill
+
+# 边框类型(normal|none|pixel)切换
+bindsym $mod+b border toggle
+
+# 更改窗口焦点
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+#更改窗口焦点
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
+
+# 更改窗口位置
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move righ
+
+# 更改窗口位置
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
+
+# 窗口分割方式（h：水平 v:垂直）
+bindsym $mod+n split h
+bindsym $mod+v split v
+
+# 窗口全屏显示
+bindsym $mod+f fullscreen toggle
+
+# 布局切换 (stacking：堆叠布局, tabbed：标签布局, toggle split：平铺布局（竖直/水平）)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+x layout toggle split
+
+# 窗口切换到浮动
+bindsym $mod+Shift+space floating toggle
+
+# 焦点切换到浮动窗口
+bindsym $mod+space focus mode_toggle
+
+# 焦点切换到父窗口
+bindsym $mod+a focus parent
+
+# 焦点切换到子窗口
+#bindsym $mod+d focus child
+
+# 窗口切换为粘滞
+#bindsym $mod+g sticky toggle
+
+# 把当前窗口设为便笺本
+bindsym $mod+minus move scratchpad
+# 呼出第一个便笺本
+bindsym $mod+plus scratchpad show
+
+# 工作区间的切换
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+
+# 移动窗口到另一个工作区
+bindsym Mod1+Shift+Tab   workspace prev
+bindsym Mod1+Tab  workspace next
+bindsym $mod+Shift+Tab  move container to workspace prev, workspace prev
+bindsym $mod+Tab move container to workspace next, workspace next
+bindsym $mod+Shift+1 move container to workspace $WS1, workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2, workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3, workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4, workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5, workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6, workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7, workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8, workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9, workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS0, workspace $WS0
+
+# bar 设置
+bindsym $mod+m bar mode toggle
+
+
+###############################################################
+
+# 虚拟终端
+bindsym $mod+Return exec st
+
+# 启动 rofi
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+d exec --no-startup-id rofi -show run
+
+# 文件管理
+bindsym $mod+e exec --no-startup-id pcmanfm, workspace $WS5
+
+# scrot 截图
+bindsym --release $mod+p exec scrot -b $HOME/Pictures/scrot/$(date +%Y%m%d%H%M%S).png && xclip -selection clipoard -t 'image/png' $HOME/Pictures/scrot/$(date +%Y%m%d%H%M%S).png
+bindsym --release Control+Mod1+A exec scrot -s -b $HOME/Pictures/scrot/scrot_$(date +%Y%m%d%H%M).png && xclip -selection clipoard -t 'image/png' $HOME/Pictures/scrot/scrot_$(date +%Y%m%d%H%M).png
+
+# 电源管理（Pause Break键呼出)
+set $mode_system 系统:锁屏(L) 注销(O) 关机(S) 重启(R) 取消(Esc)
+bindsym $mod+Shift+e mode "$mode_system"
+mode "$mode_system" {
+    # bindsym l exec i3lock -c '#333333', mode "default"
+    bindsym l exec i3lock -i "/home/yksoul/Pictures/wallpaper/b2.png" , mode "default"
+    bindsym o exec i3-msg exit
+    bindsym s exec systemctl poweroff
+    bindsym r exec systemctl reboot
+    bindsym Escape mode "default"
+}
+
+# 音量调节
+bindsym XF86AudioLowerVolume exec amixer set Master 3%-
+bindsym XF86AudioRaiseVolume exec amixer set Master 3%+ unmute
+
+
+# 窗口大小
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym j resize shrink width 10 px or 5 ppt
+    bindsym k resize grow height 10 px or 5 ppt
+    bindsym l resize shrink height 10 px or 5 ppt
+    bindsym semicolon resize grow width 10 px or 5 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}

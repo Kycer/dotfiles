@@ -1,0 +1,19 @@
+{
+  "client": {
+    "client.focused": "#6272a4,#6272a4,#f8f8f2,#6272a4",
+    "client.focused_inactive": "#282A36,#282A36,#50fa7b,#50fa7b",
+    "client.unfocused": "#282A36,#282A36,#8be9fd,#8be9fd",
+    "client.urgent": "#282A36,#282A36,#ff79c6,#ff79c6",
+    "client.placeholder": "#282A36,#282A36,#8be9fd,#8be9fd"
+  },
+  "bar": {
+    "background": "#242424",
+    "statusline": "#DCDCDC",
+    "separator": "#777777",
+    "focused_workspace": "#3297FD,#11111100,#FFFFFF",
+    "active_workspace": "#FFFFFF,#FFFFFF00,#FFFFFF",
+    "inactive_workspace": "#111111,#11111100,#FFFFFF",
+    "urgent_workspace": "#990000,#11111100,#FFFFFF",
+    "binding_mode": "#990000,#99000000,#FFFFFF"
+  }
+}

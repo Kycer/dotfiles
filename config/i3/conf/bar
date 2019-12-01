@@ -1,0 +1,20 @@
+
+
+#  _
+# | |__   __ _ _ __
+# | '_ \ / _` | '__|
+# | |_) | (_| | |
+# |_.__/ \__,_|_|
+#
+
+bar {
+  position top
+  workspace_min_width 70
+  height  35
+  status_command i3blocks
+  i3bar_command i3bar
+  font pango: SpaceMono Nerd Font Regular 11
+  colors {
+  $color
+  }
+}
