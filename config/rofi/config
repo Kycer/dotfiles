@@ -1,0 +1,8 @@
+rofi.modi: drun,run
+rofi.lines: 4
+rofi.columns: 1
+rofi.width: 100
+rofi.show-icons: true
+rofi.sidebar-mode: true
+rofi.m: -4
+rofi.theme:sidetab

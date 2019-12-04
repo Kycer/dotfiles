@@ -44,9 +44,7 @@ def scripts():
   path = HOME + '/.scripts'
   if not os.path.exists(path):
     os.makedirs(path)
-  os.system('cp %s %s' % (os.path.abspath(os.path.join(abspath, "../../scripts/*")), path))
   os.system('mv %s %s' % (abspath+'/config', HOME + '/.config/i3/config'))
-  os.system('chmod -R a+x %s' % path)
   os.system('i3-msg restart')
 
 
