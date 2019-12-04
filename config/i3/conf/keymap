@@ -113,6 +113,9 @@ bindsym $mod+m bar mode toggle
 # 虚拟终端
 bindsym $mod+Return exec st
 
+#锁屏
+bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l dim
+
 # 启动 rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
@@ -144,15 +147,15 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 3%+ unmute
 # 窗口大小
 bindsym $mod+r mode "resize"
 mode "resize" {
-    bindsym j resize shrink width 10 px or 5 ppt
-    bindsym k resize grow height 10 px or 5 ppt
-    bindsym l resize shrink height 10 px or 5 ppt
-    bindsym semicolon resize grow width 10 px or 5 ppt
+    bindsym h resize shrink width 20 px or 10 ppt
+    bindsym j resize grow height 20 px or 10 ppt
+    bindsym k resize shrink height 20 px or 10 ppt
+    bindsym l resize grow width 20 px or 10 ppt
 
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    # bindsym Left resize shrink width 10 px or 10 ppt
+    # bindsym Down resize grow height 10 px or 10 ppt
+    # bindsym Up resize shrink height 10 px or 10 ppt
+    # bindsym Right resize grow width 10 px or 10 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
