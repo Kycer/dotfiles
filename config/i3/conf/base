@@ -8,8 +8,8 @@
 # 开机启动
 exec_always --no-startup-id ~/.scripts/wallpapers.sh
 exec_always --no-startup-id fcitx
-#exec_always --no-startup-id nm-applet
 exec_always --no-startup-id picom -b --xrender-sync --xrender-sync-fence --experimental-backends
+
 
 # 设置mod键
 set $mod Mod4
