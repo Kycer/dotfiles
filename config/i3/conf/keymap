@@ -121,7 +121,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 
 # 文件管理
-bindsym $mod+e exec --no-startup-id pcmanfm, workspace $WS5
+bindsym $mod+e exec st -e ranger
 
 # scrot 截图
 bindsym --release $mod+p exec scrot -b $HOME/Pictures/scrot/$(date +%Y%m%d%H%M%S).png && xclip -selection clipoard -t 'image/png' $HOME/Pictures/scrot/$(date +%Y%m%d%H%M%S).png

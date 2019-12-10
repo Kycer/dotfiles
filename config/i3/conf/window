@@ -14,10 +14,14 @@ assign [class="jetbrains-idea"] → $WS3
 assign [class="Lxappearance"] → $WS8
 assign [class="netease-cloud-music"] → $WS6
 assign [class="electronic-wechat"] → $WS4
+assign [class="dingtalk"] → $WS7
 
 # 打开应用调到指定工作区间
-# for_window [class="Thunar"] floating enable resize set 1100 680
-# for_window [class="netease-cloud-music"] floating enable resize set 1100 680
 for_window [class="netease-cloud-music"] floating enable
 for_window [class="URxvt"] floating enable
 for_window [class="St"] floating enable
+for_window [class="Pcmanfm"] floating enable
+for_window [class="Postman"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Wps"] floating enable
+for_window [class="org.remmina.Remmina"] floating enable
