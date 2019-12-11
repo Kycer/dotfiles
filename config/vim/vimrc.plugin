@@ -1,0 +1,16 @@
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+"文件管理器
+Plug 'scrooloose/nerdtree'
+" 代码检查
+Plug 'neomake/neomake'
+" 多点编辑插件
+Plug 'terryma/vim-multiple-cursors'
+" 主题
+Plug 'morhetz/gruvbox'
+
+" Initialize plugin system
+call plug#end()
