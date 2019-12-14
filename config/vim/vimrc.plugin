@@ -16,12 +16,14 @@ Plug 'ryanoasis/vim-devicons'
 " 补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 状态栏
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 " Initialize plugin system
 call plug#end()
+
+
 
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
@@ -47,3 +49,7 @@ let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
 
+set laststatus=2  "永远显示状态栏
+let g:airline_powerline_fonts = 1  " 支持 powerline 字体
+let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
+let g:airline_theme='gruvbox'
