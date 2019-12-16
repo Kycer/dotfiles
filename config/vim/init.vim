@@ -1,10 +1,15 @@
 " 插件
-if filereadable(expand("~/.vim/vimrc.plugin"))
-  source ~/.vim/vimrc.plugin
+if filereadable(expand("~/.vim/plugins.vim"))
+  source ~/.vim/plugins.vim
 endif
 
 " 基本设置
-if filereadable(expand("~/.vim/vimrc.setting"))
-  source ~/.vim/vimrc.setting
+if filereadable(expand("~/.vim/basic.vim"))
+  source ~/.vim/basic.vim
+endif
+
+" 快捷键配置
+if filereadable(expand("~/.vim/mappings.vim"))
+  source ~/.vim/mappings.vim
 endif
 
