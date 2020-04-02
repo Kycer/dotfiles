@@ -112,6 +112,7 @@ export NVM_DIR="$HOME/.nvm"
 alias ssr='ssr(){sudo python /opt/Apps/ssr/shadowsocksr/shadowsocks/local.py -d $1 -c /opt/Apps/ssr/$2.json ; };ssr'
 
 alias hp="http_proxy=http://localhost:8118"
-alias vimi3="vim  ~/.config/i3/config" 
+alias vi="nvim "
+alias vimi3="nvim  ~/.config/i3/config"
 
 gp=" --config http.proxy=localhost:8118"
