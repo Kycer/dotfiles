@@ -1,0 +1,37 @@
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '!has("nvim")'
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+hook_add = '''
+  colorscheme gruvbox
+  set background=dark
+'''
+
+# start page
+[[plugins]]
+repo = 'mhinz/vim-startify'
+
+[[plugins]]
+repo = 'sgur/vim-editorconfig'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'

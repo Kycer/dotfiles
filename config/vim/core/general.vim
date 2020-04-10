@@ -67,10 +67,7 @@ set incsearch
 syntax enable
 syntax on
 set t_Co=256
+filetype plugin indent on
 
 "设置字体"
 set guifont=Monaco:h14
-
-" 主题
-colorscheme gruvbox
-set background=dark

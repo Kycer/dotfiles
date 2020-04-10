@@ -1,0 +1,37 @@
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+on_cmd = 'Defx'
+hook_post_source = 'source ~/.dotfiles/config/vim/plugins/defx.vim'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+on_source = 'defx.nvim'
+hook_add = '''
+    let g:defx_icons_column_length = 1
+    let g:defx_icons_mark_icon = ''
+'''
+
+# Search start
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install'
+rtp = ''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+on_cmd = ['Colors', 'Rg', 'Files']
+hook_source = 'source ~/.dotfiles/config/vim/plugins/fzf.vim'
+# Search end
+
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_map = ['<Plug>(easymotion-']
+hook_add = 'source ~/.dotfiles/config/vim/plugins/easymotion.vim'
+
+[[plugins]]
+repo = 'sbdchd/neoformat'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
