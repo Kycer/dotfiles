@@ -1,18 +1,30 @@
 #!/bin/bash
 
+sinks=$(pactl list sinks short | grep RUNNING | awk '{print $1}')
+
+function fun(){
+    if [ ! $sinks ]; then
+        sinks=(@DEFAULT_SINK@)
+    fi
+    for sink in $sinks
+    do
+        # echo "pactl set-sink-$1 $sink $2"
+        pactl set-sink-$1 $sink $2
+    done
+}
+
 while getopts udm opt
 do
     case $opt in
         u)
-            pactl set-sink-volume @DEFAULT_SINK@ +5%
-            # amixer -qM set Master 5%+ umute
+            fun volume +5%
             ;;
 
         d)
-            pactl set-sink-volume @DEFAULT_SINK@ -5%
+            fun volume -5%
             ;;
         m)
-            pactl set-sink-mute @DEFAULT_SINK@ toggle
+            fun mute toggle
             ;;
         *)
             echo "-$opt not recognized"
