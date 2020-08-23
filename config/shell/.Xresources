@@ -2,6 +2,7 @@ Xft.dpi:                    96
 Xft.rgba:                   rgba
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
+Xft.antialias: true
 
 ! 基础设置
 URxvt.title:Rxvt-Unicode
@@ -13,17 +14,29 @@ URxvt.shading: 20
 URxvt.geometry: 90x30
 URxvt.lineSpace: 0
 URxvt.internalBorder: 3
-URxvt.inheritPixmap:false
+! URxvt.inheritPixmap:false
 URxvt.transparent: false
 ! URxvt.urgentOnBell: true
 ! URxvt.visualBell: true
 URxvt.loginShell: true
 
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! 一定要写全名及大写的C/V,否则无效
+! Shift/Control 顺序无关
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! 禁用之前的复制粘贴方案
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
 ! 字体设置
 URxvt.multichar_encoding: utf-8
 URxvt.imLocale: zh_CN.UTF-8
-URxvt.font:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=16,xft
-URxvt.boldfont:xft:Source\ Code\ Pro\ for\ Powerline:antialias=true:pixelsize=16,xft
+URxvt.font:xft:Monaco:antialias=true:pixelsize=16,xft:WenQuanYi\ Zen\ Hei\ Mono:antialias=true:pixelsize=16
+URxvt.boldfont:xft:Monaco:antialias=true:pixelsize=16,xft:WenQuanYi\ Zen\ Hei\ Mono:antialias=true:pixelsize=16
 !URxvt*letterSpace: 1
 
 ! 滚动条
@@ -40,7 +53,7 @@ URxvt.cursorUnderline: false
 URxvt.pointerBlank: true
 
 ! Perl extensions
-URxvt.perl-ext-common: default,matcher,tabbed,keyboard-select,clipboard,url-select
+URxvt.perl-ext-common: default,tabbed,keyboard-select,url-select
 
 ! 点击打开url
 URxvt.url-launcher: chromium
@@ -64,10 +77,6 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: chromium
 URxvt.url-select.underline: true
-
-!! rofi设置
-rofi.theme:sidetab.rasi
-rofi.font: WenQuanYi\ Zen\ Hei\ Mono 12
 
 *.alpha: 255
 *.foreground: #F8F8F2

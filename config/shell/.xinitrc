@@ -4,9 +4,9 @@ export LANGUAGE=zh_CN:en_US
 export LC_CTYPE=en_US.UTF-8
 
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS=@im=fcitx5
 
 wmname LG3D
 
@@ -48,7 +48,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-session=${1:-dwm}
+
+#  autostart
+$HOME/.dotfiles/scripts/autostart.sh &
+
+session=${1:-i3}
 
 case $session in
     i3|i3wm           ) exec i3;;

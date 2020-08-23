@@ -1,0 +1,47 @@
+
+* {
+    background-color:      #2A3950ff;
+    text-color:            #FEFFF1ff;
+}
+
+#window {
+  anchor:   east;
+  location: east;
+  width:    80px;
+  height:   290px;
+  border-radius:4px;
+  x-offset: -20px;
+  y-offset: -15%;
+  children:   [ horibox ];
+}
+
+#horibox{
+  orientation: vertical;
+  children:[listview];
+}
+
+#listview {
+  dynamic: false;
+  scrollbar: false;
+  layout: vertical;
+  padding:5px;
+  spacing: 5px;
+  lines: 3;
+}
+
+#element {
+    border: 0px;
+    border-radius: 4px;
+    font:							"Knack Nerd Font 30";
+    background-color:      #6F88FE1a;
+    orientation:                    horizontal;
+    padding: 10px 0;
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align: 0.5;
+}
+
+#element selected {
+    background-color:      #DA4453FF;
+    border-radius:4px;
+}

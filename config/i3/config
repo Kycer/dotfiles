@@ -9,12 +9,12 @@
 set $mod Mod4
 
 #设置工作区间
-set $WS1  1:
+set $WS1  1:
 set $WS2  2:
 set $WS3  3:
-set $WS4  4:
+set $WS4  4:﬐
 set $WS5  5:
-set $WS6  6:
+set $WS6  6:
 set $WS7  7:
 set $WS8  8:
 set $WS9  9:
@@ -68,8 +68,9 @@ for_window [class="St"] floating enable
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Postman"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Wps"] floating enable
+# for_window [class="Wps"] floating enable
 for_window [class="org.remmina.Remmina"] floating enable
+for_window [class="flameshot"] floating enable
 
 
 # _
@@ -179,11 +180,8 @@ bindsym $mod+Shift+0 move container to workspace $WS0, workspace $WS0
 # bar 设置
 bindsym $mod+m bar mode toggle
 
-
-###############################################################
-
 # 虚拟终端
-bindsym $mod+Return exec st
+bindsym $mod+Return exec urxvt
 
 #锁屏
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l dim
@@ -195,16 +193,17 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 # 文件管理
 bindsym $mod+e exec st -e ranger
 
-# scrot 截图
-bindsym --release $mod+p exec scrot -b $HOME/Pictures/scrot/$(date +%Y%m%d%H%M%S).png && xclip -selection clipoard -t 'image/png' $HOME/Pictures/scrot/$(date +%Y%m%d%H%M%S).png
-bindsym --release Control+Mod1+A exec scrot -s -b $HOME/Pictures/scrot/scrot_$(date +%Y%m%d%H%M).png && xclip -selection clipoard -t 'image/png' $HOME/Pictures/scrot/scrot_$(date +%Y%m%d%H%M).png
+# 截图
+bindsym --release $mod+p exec --no-startup-id flameshot gui
+
 
 # 电源管理（Pause Break键呼出)
 set $mode_system 系统:锁屏(L) 注销(O) 关机(S) 重启(R) 取消(Esc)
-bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+Shift+e exec --no-startup-id $HOME/.dotfiles/scripts/rofi/powermenu.sh
+# bindsym $mod+Shift+e mode "$mode_system"
 mode "$mode_system" {
     # bindsym l exec i3lock -c '#333333', mode "default"
-    bindsym l exec i3lock -i "/home/yksoul/Pictures/wallpaper/b2.png" , mode "default"
+    bindsym l exec i3lock -i "$HOME/Pictures/wallpaper/b2.png" , mode "default"
     bindsym o exec i3-msg exit
     bindsym s exec systemctl poweroff
     bindsym r exec systemctl reboot
@@ -244,21 +243,21 @@ mode "resize" {
 
 bar {
   position top
-  workspace_min_width 70
+  workspace_min_width 80
   height  35
   status_command i3blocks
   i3bar_command i3bar
-  font pango: SpaceMono Nerd Font Regular 11
+  font pango: DejaVuSansMono Nerd Font Mono 16
   colors {
-  	background            #242424
+  	background            #E6333333
 	statusline            #DCDCDC
 	separator             #777777
+    #                      border       backgr.             text
 	focused_workspace     #3297FD		#11111100		#FFFFFF
 	active_workspace      #FFFFFF		#FFFFFF00		#FFFFFF
 	inactive_workspace    #111111		#11111100		#FFFFFF
 	urgent_workspace      #990000		#11111100		#FFFFFF
 	binding_mode          #990000		#99000000		#FFFFFF
-
   }
 }
 
