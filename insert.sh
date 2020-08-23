@@ -29,7 +29,7 @@ ranger_dri="$HOME/.config/ranger"
 if [ -d "$ranger_dri" ]; then
     rm -rf $ranger_dri
 fi
-ln -sf $HOME/.dotfiles/config/ranger $rofi_dri
+ln -sf $HOME/.dotfiles/config/ranger $ranger_dri
 
 # rofi
 rofi_dri="$HOME/.config/rofi"
