@@ -1,5 +1,7 @@
 #!/bin/bash
 
+yay -S dunst neofetch picom polybar ranger rofirofi i3blocks i3-gaps-next-git
+
 # dunst
 dunst_dri="$HOME/.config/dunst"
 if [ ! -d "$dunst_dri" ]; then
@@ -8,6 +10,13 @@ fi
 ln -sf $HOME/.dotfiles/config/dunst/dunstrc $dunst_dri/dunstrc
 killall dunst
 
+# neofetch
+neofetch_dri="$HOME/.config/neofetch"
+if [ ! -d "$neofetch_dri" ]; then
+    mkdir $neofetch_dri
+fi
+ln -sf $HOME/.dotfiles/config/neofetch/config.conf $neofetch_dri/config.conf
+
 # picom
 picom_dri="$HOME/.config/picom"
 if [ ! -d "$picom_dri" ]; then
@@ -15,7 +24,7 @@ if [ ! -d "$picom_dri" ]; then
 fi
 ln -sf $HOME/.dotfiles/config/picom/picom.conf $picom_dri/picom.conf
 killall picom &&
-picom -b --experimental-backends --config ~/.dotfiles/config/picom/picom.conf
+picom -b --experimental-backends
 
 # polybar
 polybar_dri="$HOME/.config/polybar"

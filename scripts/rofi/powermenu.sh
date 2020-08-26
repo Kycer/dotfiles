@@ -15,17 +15,13 @@ logout=""
 options="$shutdown\n$reboot\n$lock\n$logout"
 
 function confirm(){
-    ans=$($rofi_scripts_dir/confirm.sh)
-    if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-    $1
-    elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-    $2
-    else
-    rofi -theme "$rofi_dir/themes/message.rasi" -e "Available Options  -  yes / y / no / n"
-    fi
+    message=
+    $rofi_scripts_dir/confirm.sh "Are You Sure? : " "$1" "$2"
 }
 
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 3)"
+
+
+chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
         confirm "systemctl poweroff" exit

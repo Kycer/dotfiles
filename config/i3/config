@@ -73,6 +73,7 @@ for_window [class="org.remmina.Remmina"] floating enable
 for_window [class="flameshot"] floating enable
 
 
+
 # _
 #| | _____ _   _ _ __ ___   __ _ _ __
 #| |/ / _ \ | | | '_ ` _ \ / _` | '_ \
@@ -247,17 +248,17 @@ bar {
   height  35
   status_command i3blocks
   i3bar_command i3bar
-  font pango: DejaVuSansMono Nerd Font Mono 16
+  font pango: monospace 15
   colors {
-  	background            #E6333333
+  	background            #333333
 	statusline            #DCDCDC
 	separator             #777777
     #                      border       backgr.             text
-	focused_workspace     #3297FD		#11111100		#FFFFFF
-	active_workspace      #FFFFFF		#FFFFFF00		#FFFFFF
-	inactive_workspace    #111111		#11111100		#FFFFFF
-	urgent_workspace      #990000		#11111100		#FFFFFF
-	binding_mode          #990000		#99000000		#FFFFFF
+	focused_workspace     #7A5F82		#7A5F82		    #333333
+	active_workspace      #FFFFFF		#333333         #FFFFFF
+	inactive_workspace    #333333		#333333	        #FFFFFF
+	urgent_workspace      #DA4453		#DA4453	        #333333
+	binding_mode          #DA4453		#DA4453	        #333333
   }
 }
 

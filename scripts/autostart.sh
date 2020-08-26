@@ -1,6 +1,9 @@
 #!/bin/sh
 
 fcitx5 &
-picom -b --experimental-backends --config ~/.dotfiles/config/picom/picom.conf &
+picom -b --experimental-backends &
 ~/.dotfiles/scripts/wallpapers.sh &
-~/.dotfiles/scripts/dwm_bar/bar.sh &
+wm="$(wmname)"
+if [ "$wm" == 'dwm' ]; then
+  ~/.dotfiles/scripts/dwm_bar/bar.sh &
+fi
