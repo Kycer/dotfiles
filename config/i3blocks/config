@@ -10,21 +10,21 @@ separator=false
 separator_block_width=20
 markup=pango
 
-[mediaplayer]
-instance=spotify
-interval=5
-signal=10
-color=#a9e185
+# [mediaplayer]
+# instance=spotify
+# interval=5
+# signal=10
+# color=#a9e185
 
-[arch_update.py]
-command=printf "\\uf303 " &&  ~/.dotfiles/scripts/i3blocks/arch_update.py -b "#FFFFFF" -u "#FFFFFF"
-interval=3600
-color=#1793D1
+# [arch_update.py]
+# command=printf "\\uf303 " &&  ~/.dotfiles/scripts/i3blocks/arch_update.py -b "#FFFFFF" -u "#FFFFFF"
+# interval=3600
+# color=#1793D1
 
-[openvpn]
-command=printf "\uf084 " &&  ~/.dotfiles/scripts/i3blocks/openvpn
-interval=5
-color=#8be9fd
+# [openvpn]
+# command=printf "\uf084 " &&  ~/.dotfiles/scripts/i3blocks/openvpn
+# interval=5
+# color=#8be9fd
 
 [home]
 command=printf "\\uf015 " &&  ~/.dotfiles/scripts/i3blocks/disk
@@ -64,11 +64,11 @@ STEP=2%
 interval=2
 color=#a9e185
 
-[wifi]
-command=printf "\\uf1eb " &&  ~/.dotfiles/scripts/i3blocks/wifi
-instance=wlp2s0
-interval=5
-color=#8be9fd
+# [wifi]
+# command=printf "\\uf1eb " &&  ~/.dotfiles/scripts/i3blocks/wifi
+# instance=wlp1s0
+# interval=3600
+# color=#8be9fd
 
 [time]
 command=printf "\\uf017 " && date '+%I:%M'

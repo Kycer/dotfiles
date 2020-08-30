@@ -1,6 +1,10 @@
 #!/bin/bash
+wallpaper_dir="~/Pictures/wallpaper"
 
-cd ~/Pictures/wallpaper
+if [ ! -d "$wallpaper_dir" ]; then
+    mkdir $wallpaper_dir
+fi
+cd $wallpaper
 
 while true; do
 	files=()

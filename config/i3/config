@@ -192,7 +192,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 
 # 文件管理
-bindsym $mod+e exec st -e ranger
+bindsym $mod+e exec alacritty -e ranger
 
 # 截图
 bindsym --release $mod+p exec --no-startup-id flameshot gui
@@ -215,6 +215,9 @@ mode "$mode_system" {
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+# 屏幕亮度
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # 窗口大小
 bindsym $mod+r mode "resize"

@@ -62,15 +62,13 @@ fi
 ln -sf $HOME/.dotfiles/config/i3blocks/config $i3blocks_dri/config
 
 # shell
-ln -sf $HOME/.dotfiles/config/shell/.bashrc $HOME/.bashrc
-source $HOME/.bashrc
+
 ln -sf $HOME/.dotfiles/config/shell/.pam_environment  $HOME/.pam_environment
-source $HOME/.pam_environment
 ln -sf $HOME/.dotfiles/config/shell/.xinitrc  $HOME/.xinitrc
-source $HOME/.xinitrc
 ln -sf $HOME/.dotfiles/config/shell/.xprofile  $HOME/.xprofile
-source $HOME/.xprofile
 ln -sf $HOME/.dotfiles/config/shell/.Xresources  $HOME/.Xresources
 xrdb $HOME/.Xresources
-ln -sf $HOME/.dotfiles/config/shell/.zshrc  $HOME/.zshrc
+cp $HOME/.dotfiles/config/shell/.bashrc $HOME/.bashrc
+source $HOME/.zshrc
+cp $HOME/.dotfiles/config/shell/.zshrc  $HOME/.zshrc
 source $HOME/.zshrc
