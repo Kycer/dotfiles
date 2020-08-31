@@ -249,17 +249,17 @@ bar {
   position top
   workspace_min_width 80
   height  35
+  i3bar_command i3bar -t
   status_command i3blocks
-  i3bar_command i3bar
   font pango: monospace 15
   colors {
-  	background            #333333
+  	background            #33333380
 	statusline            #DCDCDC
 	separator             #777777
     #                      border       backgr.             text
-	focused_workspace     #7A5F82		#7A5F82		    #333333
-	active_workspace      #FFFFFF		#333333         #FFFFFF
-	inactive_workspace    #333333		#333333	        #FFFFFF
+	focused_workspace     #ffb86c		#ffb86c		    #333333
+	active_workspace      #FFFFFF		#33333380       #FFFFFF
+	inactive_workspace    #33333380		#33333380	    #FFFFFF
 	urgent_workspace      #DA4453		#DA4453	        #333333
 	binding_mode          #DA4453		#DA4453	        #333333
   }

@@ -4,7 +4,7 @@ wallpaper_dir="~/Pictures/wallpaper"
 if [ ! -d "$wallpaper_dir" ]; then
     mkdir $wallpaper_dir
 fi
-cd $wallpaper
+cd $wallpaper_dir
 
 while true; do
 	files=()
