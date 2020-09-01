@@ -1,5 +1,5 @@
 #!/bin/bash
-wallpaper_dir="~/Pictures/wallpaper"
+wallpaper_dir="$HOME/Pictures/wallpaper"
 
 if [ ! -d "$wallpaper_dir" ]; then
     mkdir $wallpaper_dir
