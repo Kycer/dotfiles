@@ -1,5 +1,6 @@
 #!/bin/sh
 
+~/.dotfiles/scripts/polybar.sh &
 fcitx5 &
 picom -b --experimental-backends &
 ~/.dotfiles/scripts/wallpapers.sh &

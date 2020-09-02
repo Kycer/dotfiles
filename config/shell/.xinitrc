@@ -8,8 +8,6 @@ export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx5
 
-wmname LG3D
-
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 userresources=$HOME/.Xresources
@@ -57,6 +55,7 @@ session=${1:-i3}
 case $session in
     i3|i3wm           ) exec i3;;
     dwm               ) exec dwm;;
+    bspwm             ) exec bspwm;;
     *                 ) exec $1;;
 esac
 

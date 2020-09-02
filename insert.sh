@@ -61,6 +61,20 @@ if [ ! -d "$i3blocks_dri" ]; then
 fi
 ln -sf $HOME/.dotfiles/config/i3blocks/config $i3blocks_dri/config
 
+# bspwm
+bspwm_dri="$HOME/.config/bspwm"
+if [ ! -d "$bspwm_dri" ]; then
+    mkdir $bspwm_dri
+fi
+ln -sf $HOME/.dotfiles/config/bspwm/bspwmrc $bspwm_dri/bspwmrc
+
+# sxhkd
+sxhkd_dri="$HOME/.config/sxhkd"
+if [ ! -d "$sxhkd_dri" ]; then
+    mkdir $sxhkd_dri
+fi
+ln -sf $HOME/.dotfiles/config/sxhkd/sxhkdrc $sxhkd_dri/sxhkdrc
+
 # shell
 
 ln -sf $HOME/.dotfiles/config/shell/.pam_environment  $HOME/.pam_environment
@@ -69,6 +83,6 @@ ln -sf $HOME/.dotfiles/config/shell/.xprofile  $HOME/.xprofile
 ln -sf $HOME/.dotfiles/config/shell/.Xresources  $HOME/.Xresources
 xrdb $HOME/.Xresources
 cp $HOME/.dotfiles/config/shell/.bashrc $HOME/.bashrc
-source $HOME/.zshrc
+source $HOME/.bashrc
 cp $HOME/.dotfiles/config/shell/.zshrc  $HOME/.zshrc
 source $HOME/.zshrc
