@@ -1,116 +1,84 @@
-/*
- * sidetab-adapta theme,
- * based on sidetab theme by deadguy.
- *
- * This theme has been dedicated to the public domain.
- *
- */
-
 configuration {
-        show-icons:   true;
-        sidebar-mode: true;
+    display-drun:                   "Apps";
+    display-window:                 "Window";
+    show-icons:true;
 }
 
+@import "colors"
+
 * {
-        background-color:           #222d32;
-        text-color:                 #ffffff;
-
-        accent-color:               #00bcd4;
-        accent2-color:              #4db6ac;
-        hover-color:                #39454b;
-        urgent-color:               #ff5252;
-        window-color:               #ffffff;
-
-        selected-normal-foreground: @window-color;
-        normal-foreground:          @text-color;
-        selected-normal-background: @hover-color;
-        normal-background:          @background-color;
-
-        selected-urgent-foreground: @background-color;
-        urgent-foreground:          @text-color;
-        selected-urgent-background: @urgent-color;
-        urgent-background:          @background-color;
-
-        selected-active-foreground: @window-color;
-        active-foreground:          @text-color;
-        selected-active-background: @hover-color;
-        active-background:          @accent-color;
+    columns: 1;
+    background-color: @xbg;
+    border-color: #00000000;
+    text-color: @xfg;
+    font: "PingFang SC 14";
 }
 
 #window {
-        anchor:   west;
-        location: west;
-        width:    384px;
-        height:   100%;
+/*    fullscreen:true;
+	location:	 west;
+    anchor: west;*/
+    border: 0;
+    border-radius: 4px;
+    padding: 40;
+    width: 50%;
+    height: 50%;
 }
 
 #mainbox {
-        children: [ entry, listview, mode-switcher ];
+    background-color: #00000000;
+    children: [inputbar, listview];
+    spacing: 10px;
+    /*margin: 20%;*/
+    padding: 20px 20px;
+    border: 1px;
+    border-color: @base0D;
 }
 
-entry {
-        expand: false;
-        margin: 8px;
+
+#listview {
+    background-color: #00000000;
+    fixed-height: 0;
+    border: 0px;
+    spacing: 5px;
+    scrollbar: false;
+    padding: 10px 10px 0px;
 }
 
-element {
-        padding: 8px;
+#element {
+    background-color: #00000000;
+    border: 0;
+    border-radius: 4px;
+    padding: 3 0  3 4 ;
 }
 
-element normal.normal {
-        background-color: @normal-background;
-        text-color:       @normal-foreground;
+#element selected {
+    background-color: @xbs;
+    text-color: @xfs;
 }
 
-element normal.urgent {
-        background-color: @urgent-background;
-        text-color:       @urgent-foreground;
+
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    background-color: #00000000;
 }
 
-element normal.active {
-        background-color: @active-background;
-        text-color:       @active-foreground;
+#case-indicator {
+    background-color: #00000000;
+    spacing:    0;
+}
+#entry {
+    background-color: #00000000;
+    spacing:    0;
+}
+#prompt {
+    background-color: #00000000;
+    spacing:    0;
 }
 
-element selected.normal {
-        background-color: @selected-normal-background;
-        text-color:       @selected-normal-foreground;
-        border:           0 4px solid 0 0;
-        border-color:     @accent2-color;
+#textbox-prompt-colon {
+    background-color: #00000000;
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
 }
-
-element selected.urgent {
-        background-color: @selected-urgent-background;
-        text-color:       @selected-urgent-foreground;
-}
-
-element selected.active {
-        background-color: @selected-active-background;
-        text-color:       @selected-active-foreground;
-}
-
-element alternate.normal {
-        background-color: @normal-background;
-        text-color:       @normal-foreground;
-}
-
-element alternate.urgent {
-        background-color: @urgent-background;
-        text-color:       @urgent-foreground;
-}
-
-element alternate.active {
-        background-color: @active-background;
-        text-color:       @active-foreground;
-}
-
-button {
-        padding: 8px;
-}
-
-button selected {
-        background-color: @active-background;
-        text-color:       @background-color;
-}
-
-/* vim: ft=css

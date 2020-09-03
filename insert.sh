@@ -75,6 +75,14 @@ if [ ! -d "$sxhkd_dri" ]; then
 fi
 ln -sf $HOME/.dotfiles/config/sxhkd/sxhkdrc $sxhkd_dri/sxhkdrc
 
+# fontconfig
+fontconfig_dri="$HOME/.config/fontconfig"
+if [ ! -d "$fontconfig_dri" ]; then
+    mkdir $fontconfig_dri
+fi
+ln -sf $HOME/.dotfiles/config/fontconfig/fonts.conf $fontconfig_dri/fonts.conf
+
+
 # shell
 
 ln -sf $HOME/.dotfiles/config/shell/.pam_environment  $HOME/.pam_environment

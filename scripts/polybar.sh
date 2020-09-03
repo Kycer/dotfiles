@@ -6,7 +6,7 @@ killall -q polybar
 
 # Wait until the processes have been shut down
 for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar --reload top -c ~/.dotfiles/config/polybar/bspwm-bar &
+    MONITOR=$m polybar --reload main -c ~/.dotfiles/config/polybar/bspwm.ini &
 done
 
 echo "Bars launched..."
