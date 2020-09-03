@@ -1,8 +1,17 @@
-Xft.dpi:                    96
+! 1080以下不用设置，默认是96，推荐设置：
+! 150% - 144
+! 175% - 168
+! 200% - 192
+
+Xft.dpi:                    144
 Xft.rgba:                   rgba
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
-Xft.antialias: true
+
+! 关闭自动hint
+Xft.autohint:               0
+Xft.lcdfilter:              lcddefault
+Xft.hinting:                1
+Xft.hintstyle:              hintfull
+Xft.antialias:              1
 
 ! 基础设置
 URxvt.title:Rxvt-Unicode
