@@ -8,18 +8,14 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 
 
-# monitors=$(xrandr --query | grep " connected" | cut -d" " -f1)
+monitors="$(bspc query -M --names)"
+if [ ${#monitors[@]} -eq 1 ] ; then
+	bspc monitor -d I II III IV V VI VII VIII IX X
+else
+	bspc monitor ${monitors[0]} -d I II III IV V
+  bspc monitor ${monitors[1]} -d VI VII VIII IX X
+fi
 
-# if [ ${#monitor[@]} -gt 1 ]; then
-#   for monitor in $monitors; do
-#    bspc monitor -d 1 2 6 7 8 9 0
-#  done
-# else
-#   bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-# fi
-
-bspc monitor eDP -d I II III IV V
-bspc monitor DisplayPort-0 -d VI VII VIII IX X
 
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
@@ -43,4 +39,6 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a netease-cloud-music desktop='^5' state=floating
+bspc rule -a Sxiv state=floating follow=on
+bspc rule -a Zathura state=floating follow=on
 

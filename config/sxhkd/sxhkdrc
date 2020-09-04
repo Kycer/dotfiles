@@ -132,7 +132,7 @@ super + shift + v
 
 # ranger
 super + e
-	alacritty -e ranger
+	st -e ranger
 
 
 XF86AudioRaiseVolume
