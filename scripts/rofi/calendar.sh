@@ -1,2 +1,2 @@
 #!/bin/bash
-rofi -e "$(cal -m --color=always | sed "s+\\[7m+\<span\ color=\'magenta\'\>\<b\>+ ; s+\\[27m+\</b\>\</span\>+")" -markup -width 14 -location 3 -yoffset 30 &
+rofi -e "$(cal -m --color=always | sed "s/\x1b\[[7;]*m/\<b\>\<u\>/g" | sed "s/\x1b\[[27;]*m/\<\/u\>\<\/b\>/g")" -markup -theme "$HOME/.dotfiles/config/rofi/themes/calendar.rasi"

@@ -161,3 +161,6 @@ XF86MonBrightnessDown
 
 super + shift + s
     flameshot gui
+
+super + shift + e
+    $HOME/.dotfiles/scripts/rofi/powermenu.sh
