@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+wm_name="$($HOME/.dotfiles/scripts/wm_name.sh)"
 rofi_dir="$HOME/.dotfiles/config/rofi"
 rofi_scripts_dir="$HOME/.dotfiles/scripts/rofi"
 rofi_command="rofi -theme $rofi_dir/themes/powermenu.rasi"
@@ -19,7 +20,15 @@ function confirm(){
     $rofi_scripts_dir/confirm.sh "Are You Sure? : " "$1" "$2"
 }
 
-
+function logout(){
+    if [ $wm_name == 'i3' ]; then
+        confirm "i3-msg exit" exit
+    elif [ $wm_name == 'bspwm' ]; then
+        confirm "bspc quit" exit
+    else
+        exit
+    fi
+}
 
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
 case $chosen in
@@ -30,9 +39,9 @@ case $chosen in
         confirm "systemctl reboot" exit
         ;;
     $lock)
-        confirm "betterlockscreen -l dim" exit
+        betterlockscreen -l dim
         ;;
     $logout)
-        confirm "i3-msg exit" exit
+        logout
         ;;
 esac

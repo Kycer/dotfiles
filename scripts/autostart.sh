@@ -1,10 +1,13 @@
 #!/bin/sh
+wm_name="$($HOME/.dotfiles/scripts/wm_name.sh)"
+echo $wm_name
+if [ $wm_name == 'dwm' ]; then
+  $HOME/.dotfiles/scripts/dwm_bar/bar.sh &
+elif [ $wm_name == 'bspwm' ]; then
+  $HOME/.dotfiles/scripts/polybar.sh &
+fi
 
-~/.dotfiles/scripts/polybar.sh &
 fcitx5 &
 picom -b --experimental-backends &
-~/.dotfiles/scripts/wallpapers.sh &
-wm="$(wmname)"
-if [ "$wm" == 'dwm' ]; then
-  ~/.dotfiles/scripts/dwm_bar/bar.sh &
-fi
+$HOME/.dotfiles/scripts/wallpapers.sh &
+
