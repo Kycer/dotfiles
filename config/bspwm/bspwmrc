@@ -41,4 +41,5 @@ bspc rule -a Screenkey manage=off
 bspc rule -a netease-cloud-music desktop='^5' state=floating
 bspc rule -a Sxiv state=floating follow=on
 bspc rule -a Zathura state=floating follow=on
-
+bspc rule -a Display state=floating follow=on
+bspc rule -a feh state=floating follow=on
