@@ -1,3 +1,13 @@
+if dein#tap('defx.nvim')
+	nnoremap <silent> <Leader>e
+		\ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
+	nnoremap <silent> <Leader>F
+		\ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
+endif
+
+let g:defx_icons_term_colors = {
+\ 'red': 2
+\ }
 
 call defx#custom#option('_', {
 	\ 'resume': 1,

@@ -6,14 +6,12 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 
 
-
-
-monitors="$(bspc query -M --names)"
+monitors=($(bspc query -M --names))
 if [ ${#monitors[@]} -eq 1 ] ; then
 	bspc monitor -d I II III IV V VI VII VIII IX X
 else
-	bspc monitor ${monitors[0]} -d I II III IV V
-  bspc monitor ${monitors[1]} -d VI VII VIII IX X
+	bspc monitor "${monitors[0]}" -d I II III IV V
+  bspc monitor "${monitors[1]}" -d VI VII VIII IX X
 fi
 
 

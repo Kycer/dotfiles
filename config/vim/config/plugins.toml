@@ -1,16 +1,5 @@
 [[plugins]]
-repo = 'roxma/nvim-yarp'
-if = '!has("nvim")'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-if = '!has("nvim")'
-
-[[plugins]]
 repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'wsdjeg/dein-ui.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -35,3 +24,6 @@ repo = 'sgur/vim-editorconfig'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
+hook_add = """
+source $HOME/.dotfiles/config/vim/plugins/coc.vim
+"""

@@ -105,6 +105,7 @@ alias ssr='ssr(){sudo python /opt/Apps/ssr/shadowsocksr/shadowsocks/local.py -d 
 alias hp="http_proxy=http://localhost:8118"
 alias vi3="nvim  ~/.config/i3/config"
 alias vi="nvim "
+alias vim="nvim "
 alias c="clear"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

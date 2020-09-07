@@ -36,12 +36,3 @@ if dein#tap('dein.vim')
 	nnoremap <silent> <Leader>l  :echo dein#get_updates_log()<CR>
 endif
 
-if dein#tap('defx.nvim')
-	nnoremap <silent> <Leader>e
-		\ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-	nnoremap <silent> <Leader>F
-		\ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
-endif
-
-
-
