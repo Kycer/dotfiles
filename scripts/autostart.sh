@@ -8,6 +8,6 @@ elif [ $wm_name == 'bspwm' ]; then
 fi
 
 fcitx5 &
-picom -b &
+picom -b --experimental-backends &
 $HOME/.dotfiles/scripts/wallpapers.sh &
 

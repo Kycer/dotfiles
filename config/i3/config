@@ -178,6 +178,9 @@ bindsym $mod+Shift+8 move container to workspace $WS8, workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9, workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS0, workspace $WS0
 
+# Moving workspaces between screens
+bindsym $mod+p move workspace to output right
+
 # bar 设置
 bindsym $mod+m bar mode toggle
 
@@ -195,7 +198,7 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 bindsym $mod+e exec alacritty -e ranger
 
 # 截图
-bindsym --release $mod+p exec --no-startup-id flameshot gui
+bindsym --release $mod+Shift+s exec --no-startup-id flameshot gui
 
 
 # 电源管理（Pause Break键呼出)
