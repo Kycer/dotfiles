@@ -190,7 +190,7 @@ bindsym $mod+p move workspace to output right
 bindsym $mod+m bar mode toggle
 
 # 虚拟终端
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 
 #锁屏
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l dim
@@ -200,7 +200,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 
 # 文件管理
-bindsym $mod+e exec alacritty -e ranger
+bindsym $mod+e exec st -e ranger
 
 # 截图
 bindsym --release $mod+Shift+s exec --no-startup-id flameshot gui
