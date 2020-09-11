@@ -1,4 +1,7 @@
 #!/bin/bash
+
+pkill -f wallpapers.sh &
+
 wallpaper_dir="$HOME/Pictures/wallpaper"
 
 if [ ! -d "$wallpaper_dir" ]; then

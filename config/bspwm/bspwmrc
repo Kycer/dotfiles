@@ -2,8 +2,8 @@
 
 xsetroot -cursor_name left_ptr &
 pgrep -x sxhkd > /dev/null || sxhkd &
+$HOME/.dotfiles/scripts/autostart.sh &
 # mname BSPWM &
-
 
 
 monitors=($(bspc query -M --names))

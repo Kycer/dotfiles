@@ -1,6 +1,6 @@
 #!/bin/bash
 xrandr --output eDP --scale 1x1 --mode 1920x1200 --output DisplayPort-1 --off --output DisplayPort-0 --right-of eDP --auto &
-pgrep -f wallpapers.sh &
+pkill -f wallpapers.sh &
 $HOME/.dotfiles/scripts/wallpapers.sh &
 
 wm_name="$($HOME/.dotfiles/scripts/wm_name.sh)"
