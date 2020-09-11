@@ -41,3 +41,6 @@ bspc rule -a Sxiv state=floating follow=on
 bspc rule -a Zathura state=floating follow=on
 bspc rule -a Display state=floating follow=on
 bspc rule -a feh state=floating follow=on
+bspc rule -a LCEDA state=floating follow=on
+bspc rule -a fcitx state=floating 
+bspc rule -a fcitx5-config-qt state=floating 
