@@ -45,7 +45,7 @@ rofi_dri="$HOME/.config/rofi"
 if [ ! -d "$rofi_dri" ]; then
     mkdir $rofi_dri
 fi
-ln -sf $HOME/.dotfiles/config/rofi/config $rofi_dri/config
+ln -sf $HOME/.dotfiles/config/rofi/config.rasi $rofi_dri/config.rasi
 
 # i3
 i3_dri="$HOME/.config/i3"

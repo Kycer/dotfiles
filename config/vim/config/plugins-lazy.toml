@@ -1,16 +1,3 @@
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-on_cmd = 'Defx'
-hook_post_source = 'source ~/.dotfiles/config/vim/plugins/defx.vim'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-on_source = 'defx.nvim'
-hook_add = '''
-    let g:defx_icons_column_length = 1
-    let g:defx_icons_mark_icon = ''
-'''
-
 # Search start
 [[plugins]]
 repo = 'junegunn/fzf'

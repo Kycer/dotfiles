@@ -25,5 +25,5 @@ repo = 'sgur/vim-editorconfig'
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 hook_add = """
-source $HOME/.dotfiles/config/vim/plugins/coc.vim
+source ~/.dotfiles/config/vim/plugins/coc.vim
 """
