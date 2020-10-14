@@ -25,6 +25,8 @@ function logout(){
         confirm "i3-msg exit" exit
     elif [ $wm_name == 'bspwm' ]; then
         confirm "bspc quit" exit
+    elif [ $wm_name == 'dwm' ]; then
+        confirm "killall bar.sh && killall dwm" exit
     else
         exit
     fi
