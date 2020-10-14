@@ -1,5 +1,4 @@
 #!/bin/sh
-sleep 3
 wm_name="$($HOME/.dotfiles/scripts/wm_name.sh)"
 echo $wm_name
 if [ $wm_name == 'dwm' ]; then

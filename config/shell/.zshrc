@@ -61,7 +61,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git sudo zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,11 +103,13 @@ export QT_IM_MODULE=xim
 
 alias ssr='ssr(){sudo python /opt/Apps/ssr/shadowsocksr/shadowsocks/local.py -d $1 -c /opt/Apps/ssr/$2.json ; };ssr'
 alias hp="http_proxy=http://localhost:8118"
-alias vi3="nvim  ~/.config/i3/config"
+alias gp=" --config http.proxy=localhost:8118"
 alias vi="nvim "
 alias vim="nvim "
 alias c="clear"
 
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-gp=" --config http.proxy=localhost:8118"
+
+bindkey ',' autosuggest-accept
