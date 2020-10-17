@@ -10,6 +10,7 @@ export XMODIFIERS=@im=fcitx5
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit 
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap

@@ -1,22 +1,35 @@
 #!/bin/bash
 
-pkill -f wallpapers.sh &
+# pkill -f wallpapers.sh &
 
 wallpaper_dir="$HOME/Pictures/wallpaper"
 
 if [ ! -d "$wallpaper_dir" ]; then
     mkdir $wallpaper_dir
 fi
-cd $wallpaper_dir
 
-while true; do
-	files=()
-	for i in *.jpg *.png; do
-		[[ -f $i ]] && files+=("$i")
+function change () {
+	feh --bg-max --randomize --bg-fill "$wallpaper_dir"
+}
+
+function init () {
+	while true; do
+		change
+		sleep 5
 	done
-	range=${#files[@]}
+}
 
-	((range)) && feh --bg-fill "${files[RANDOM % range]}"
 
-	sleep 30m
-done
+
+case $1 in
+		i)
+				init
+				;;
+
+		c)
+				change
+				;;
+		*)
+				echo "-$opt not recognized"
+				;;
+esac

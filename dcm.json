@@ -1,0 +1,8 @@
+[
+  {
+    "source_path": "$HOME/.dotfiles/config/dunst/dunstrc",
+    "target_path": "$HOME/.config/dunst",
+    "target_type": "f",
+    "exec": "killall dunst"
+  }
+]
