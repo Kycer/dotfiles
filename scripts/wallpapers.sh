@@ -15,7 +15,7 @@ function change () {
 function init () {
 	while true; do
 		change
-		sleep 5
+		sleep 30m
 	done
 }
 
@@ -25,7 +25,6 @@ case $1 in
 		i)
 				init
 				;;
-
 		c)
 				change
 				;;
