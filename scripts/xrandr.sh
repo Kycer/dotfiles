@@ -1,5 +1,7 @@
 #!/bin/bash
-xrandr --output eDP --scale 1x1 --mode 1920x1200 --output DisplayPort-1 --off --output DisplayPort-0 --right-of eDP --auto &
+# xrandr --output eDP --scale 1x1 --mode 1920x1200 --output DisplayPort-1 --off --output DisplayPort-0 --right-of eDP --auto &
+# xrandr --output eDP --scale 0.7x0.7 --mode 2560x1600 --pos 1920x0  --output DisplayPort-1 --off --output DisplayPort-0  --scale 1x1 --mode 1920x1080 --pos 0x40  --fb 3712x1120
+
 pkill -f wallpapers.sh &
 $HOME/.dotfiles/scripts/wallpapers.sh &
 

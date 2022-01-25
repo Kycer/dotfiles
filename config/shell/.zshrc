@@ -111,5 +111,3 @@ alias c="clear"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-bindkey ',' autosuggest-accept

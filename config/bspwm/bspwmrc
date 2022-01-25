@@ -6,12 +6,13 @@ $HOME/.dotfiles/scripts/autostart.sh &
 # mname BSPWM &
 
 
+
 monitors=($(bspc query -M --names))
 if [ ${#monitors[@]} -eq 1 ] ; then
-	bspc monitor -d I II III IV V VI VII VIII IX X
+	bspc monitor -d 一 二 三 四 五 六 七 八 九 十
 else
-	bspc monitor "${monitors[0]}" -d I II III IV V
-  bspc monitor "${monitors[1]}" -d VI VII VIII IX X
+	bspc monitor "${monitors[0]}" -d 一 二 三 四 五
+  bspc monitor "${monitors[1]}" -d 六 七 八 九 十
 fi
 
 
@@ -42,5 +43,6 @@ bspc rule -a Zathura state=floating follow=on
 bspc rule -a Display state=floating follow=on
 bspc rule -a feh state=floating follow=on
 bspc rule -a LCEDA state=floating follow=on
-bspc rule -a fcitx state=floating 
-bspc rule -a fcitx5-config-qt state=floating 
+bspc rule -a fcitx state=floating
+bspc rule -a fcitx5-config-qt state=floating
+bspc rule -a St state=floating follow=on

@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	st
 
 # program launcher
 super + @d
@@ -81,8 +81,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-9,0,a}
+	bspc {desktop -f,node -d} '^{1-9,10,11}'
 
 #
 # preselect
@@ -163,4 +163,25 @@ super + shift + s
     flameshot gui
 
 super + shift + e
+    pcmanfm
+
+super + shift + p
+    $HOME/.dotfiles/scripts/traye-tg.sh
+
+super + shift + x
+		$HOME/.dotfiles/scripts/lock/lock.sh
+
+super + shift + q
     $HOME/.dotfiles/scripts/rofi/powermenu.sh
+
+super + alt + c
+    $HOME/.dotfiles/scripts/wallpapers.sh c
+
+super + shift + u
+    $HOME/.dotfiles/scripts/vol.sh -u
+
+super + shift + d
+    $HOME/.dotfiles/scripts/vol.sh -d
+
+super + shift + m
+    $HOME/.dotfiles/scripts/vol.sh -m

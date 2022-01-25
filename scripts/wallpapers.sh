@@ -13,6 +13,8 @@ function change () {
 }
 
 function init () {
+	[ -f /tmp/wallpaper.lock ] && exit
+	echo $$ > /tmp/wallpaper.lock
 	while true; do
 		change
 		sleep 30m
@@ -27,6 +29,9 @@ case $1 in
 				;;
 		c)
 				change
+				;;
+		r)
+				rm /tmp/wallpaper.lock
 				;;
 		*)
 				echo "-$opt not recognized"

@@ -30,9 +30,3 @@ cnoremap w!! w !sudo tee % >/dev/null
 " json 格式化
 com! FormatJSON %!python3 -m json.tool
 
-" if dein#tap('dein.vim')
-" 	nnoremap <silent> <Leader>u  :call dein#update()<CR>
-" 	nnoremap <silent> <Leader>r  :call dein#recache_runtimepath()<CR>
-" 	nnoremap <silent> <Leader>l  :echo dein#get_updates_log()<CR>
-" endif
-
