@@ -37,7 +37,7 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-bspc rule -a netease-cloud-music desktop='^5' state=floating
+bspc rule -a netease-cloud-music state=floating
 bspc rule -a Sxiv state=floating follow=on
 bspc rule -a Zathura state=floating follow=on
 bspc rule -a Display state=floating follow=on
@@ -46,3 +46,5 @@ bspc rule -a LCEDA state=floating follow=on
 bspc rule -a fcitx state=floating
 bspc rule -a fcitx5-config-qt state=floating
 bspc rule -a St state=floating follow=on
+bspc rule -a Pcmanfm state=floating follow=on
+bspc rule -a flameshot state=floating follow=on

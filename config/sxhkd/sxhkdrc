@@ -132,7 +132,7 @@ super + shift + v
 
 # ranger
 super + e
-	st -e ranger
+	st -e lfrun
 
 
 XF86AudioRaiseVolume
