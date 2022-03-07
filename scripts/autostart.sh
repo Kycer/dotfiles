@@ -10,4 +10,4 @@ fi
 
 picom -b --experimental-backends &
 fcitx5 &
-$HOME/.dotfiles/scripts/wallpapers.sh i &
+$HOME/.dotfiles/scripts/wallpaper/wallpapers.sh i &

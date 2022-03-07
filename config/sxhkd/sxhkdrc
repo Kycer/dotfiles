@@ -175,7 +175,7 @@ super + shift + q
     $HOME/.dotfiles/scripts/rofi/powermenu.sh
 
 super + alt + c
-    $HOME/.dotfiles/scripts/wallpapers.sh c
+    $HOME/.dotfiles/scripts/wallpaper/wallpapers.sh c
 
 super + shift + u
     $HOME/.dotfiles/scripts/vol.sh -u
