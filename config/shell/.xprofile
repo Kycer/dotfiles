@@ -7,4 +7,14 @@ export QT_IM_MODULE=fcitx5
 
 export GOPATH=$HOME/.local/share/go
 export PATH=$PATH:$GOPATH/bin
-export EDITOR=nvim
+
+
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export PATH=/opt/flutter/bin:$PATH
+
+
+
+export GDK_SCALE=1.5
+export GDK_DPI_SCALE=0.5
+export QT_AUTO_SCREEN_SCALE_FACTOR=1

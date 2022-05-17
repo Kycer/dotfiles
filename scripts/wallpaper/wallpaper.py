@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import configparser
 import getopt
 import json
 import os
-from string import Template
 from random import randint
 import sys
-import time
 import requests
 
 CONFIG = [
@@ -41,6 +40,7 @@ CONFIG = [
     },
 ]
 
+CACHE_PATH = os.environ['HOME'] + "/.cache/bgcache"
 
 def random(l):
     return randint(0, len(l)-1)
@@ -70,7 +70,19 @@ def download(arg):
     with open(path, "wb") as code:
         code.write(r.content)
     setbg(path)
+    write_cache(imgUrl, item['tag'])
 
+def write_cache(url, tag):
+    with open(CACHE_PATH, 'a+') as cache:
+        cache.writelines(tag + '=' + url)
+        cache.write('\n')
+
+def read_cache():
+    CACHE_PATH = os.environ['HOME'] + "/.cache/bgcache"
+    conf = configparser.ConfigParser()
+    conf.read(CACHE_PATH)
+    print('-----------')
+    print(conf.items('DEFAULT'))
 
 def local():
     setbg("$HOME/Pictures/wallpaper")

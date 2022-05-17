@@ -10,7 +10,11 @@ export XMODIFIERS=@im=fcitx5
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export _JAVA_AWT_WM_NONREPARENTING=1
-export AWT_TOOLKIT=MToolkit 
+export AWT_TOOLKIT=MToolkit
+
+export CHROME_EXECUTABLE=/usr/bin/microsoft-edge-beta
+export ANDROID_NDK_HOME=$HOME/.android/sdk/ndk/android-ndk-r22b/
+export EDITOR=nvim
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap

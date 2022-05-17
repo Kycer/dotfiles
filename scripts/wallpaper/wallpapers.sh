@@ -19,7 +19,7 @@ function init () {
 	echo $$ > /tmp/wallpaper.lock
 	while true; do
 		change
-		sleep 1m
+		sleep 5m
 	done
 }
 
