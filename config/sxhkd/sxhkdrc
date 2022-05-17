@@ -169,7 +169,7 @@ super + shift + p
     $HOME/.dotfiles/scripts/traye-tg.sh
 
 super + shift + x
-		$HOME/.dotfiles/scripts/lock/lock.sh
+	$HOME/.dotfiles/scripts/lock/lock.sh
 
 super + shift + q
     $HOME/.dotfiles/scripts/rofi/powermenu.sh
@@ -185,3 +185,6 @@ super + shift + d
 
 super + shift + m
     $HOME/.dotfiles/scripts/vol.sh -m
+
+super + shift + o
+	$HOME/.dotfiles/scripts/xrandr.sh

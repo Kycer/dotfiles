@@ -11,7 +11,7 @@ if [ ${#monitors[@]} -eq 1 ] ; then
   for monitor in ${all_monitors[@]}
   do
     if [ $monitor == $primary ] ; then
-      xrandr --output eDP --mode 2560x1600
+      xrandr --output eDP --mode 2560x1600 --fb 2560x1600 --pos 0x0
     else
       xrandr --output $monitor --off
     fi
@@ -23,9 +23,9 @@ if [ ${#monitors[@]} -eq 2 ] ; then
   for monitor in ${monitors[@]}
   do
     if [ $monitor == $primary ] ; then
-      xrandr --output eDP --mode 2560x1600
+      xrandr --output eDP --mode 2560x1600 --fb 5440x1620 --pos 0x20
     else
-      xrandr --output $monitor --mode 1920x1080 --scale 1.6x1.6 --right-of $primary
+      xrandr --output $monitor --mode 1920x1080 --scale 1.5x1.5 --pos 2560x0
     fi
   done
 fi
