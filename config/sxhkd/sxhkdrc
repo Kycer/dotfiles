@@ -6,6 +6,9 @@
 super + Return
 	st
 
+super + shift + Return
+	st -e tmux
+
 # program launcher
 super + @d
 	rofi -show drun

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yay -S dunst neofetch picom polybar ranger rofirofi i3blocks i3-gaps-next-git
+# yay -S dunst neofetch picom polybar ranger rofirofi i3blocks i3-gaps-next-git
 
 # dunst
 dunst_dri="$HOME/.config/dunst"
@@ -39,6 +39,13 @@ if [ -d "$ranger_dri" ]; then
     rm -rf $ranger_dri
 fi
 ln -sf $HOME/.dotfiles/config/ranger $ranger_dri
+
+# ranger
+lf_dri="$HOME/.config/lf"
+if [ -d "$lf_dri" ]; then
+    rm -rf $lf_dri
+fi
+ln -sf $HOME/.dotfiles/config/lf $lf_dri
 
 # rofi
 rofi_dri="$HOME/.config/rofi"
