@@ -35,13 +35,13 @@ function logout(){
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
-        confirm "systemctl poweroff" exit
+        confirm "sudo systemctl poweroff" exit
         ;;
     $reboot)
-        confirm "systemctl reboot" exit
+        confirm "sudo systemctl reboot" exit
         ;;
     $lock)
-        betterlockscreen -l dim
+        $HOME/.dotfiles/scripts/lock/lock.sh
         ;;
     $logout)
         logout

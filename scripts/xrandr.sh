@@ -35,7 +35,7 @@ if [ ${#monitors[@]} -eq 2 ] ; then
 fi
 
 if [ $wm_name == 'dwm' ]; then
-  $HOME/.dotfiles/scripts/dwm_bar/bar.sh &
+  status-bar &
 elif [ $wm_name == 'bspwm' ]; then
   bspc wm -r &
 fi

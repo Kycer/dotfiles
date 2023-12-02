@@ -165,6 +165,12 @@ cmd mkfile ${{
 
 map Mf mkfile
 
-map gw cd ~/Workspaces
+#map gw cd ~/Workspaces
+map gdf cd  ~/.dotfiles
+map gwl cd ~/Workspaces/Learning
+map gwp cd ~/Workspaces/Projects
+map gws cd ~/Workspaces/Sources
+map gww cd ~/Workspaces/Working
+map gwv cd ~/Workspaces/VM
 
 map gt cd  ~/.local/share/Trash/files/

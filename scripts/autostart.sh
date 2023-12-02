@@ -5,9 +5,10 @@ if [ $wm_name == 'bspwm' ]; then
   $HOME/.dotfiles/scripts/polybar.sh 'bspwm.ini' &
 elif [ $wm_name == 'dwm' ]; then
   # $HOME/.dotfiles/scripts/polybar.sh 'dwm.ini' &
-  $HOME/.dotfiles/scripts/dwm_bar/bar.sh
+  # $HOME/.dotfiles/scripts/statusbar/bar.sh
+  status-bar &
 fi
 
-picom -b --experimental-backends &
+picom -b &
 fcitx5 &
 $HOME/.dotfiles/scripts/wallpaper/wallpapers.sh i &

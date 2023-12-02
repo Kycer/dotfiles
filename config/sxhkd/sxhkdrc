@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	st
+	alacritty
 
 super + shift + Return
 	st -e tmux
@@ -124,7 +124,7 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
-#
+#cc
 # show/hidden
 #
 super + v
@@ -135,7 +135,7 @@ super + shift + v
 
 # ranger
 super + e
-	st -e lfrun
+	st -e lf
 
 
 XF86AudioRaiseVolume

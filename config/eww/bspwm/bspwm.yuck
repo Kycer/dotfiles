@@ -1,0 +1,26 @@
+(defvar desktops-json "[1, 2, 3]")
+
+
+; (defvar FOLDER "[\"A\" \"B\", \"C\"]")
+
+; (defwidget json []
+;   (box
+;     (for name in desktops-json
+;       (box :onclick "notify-send 'click' 'button ${name}'"
+;       name))))
+
+; (defwidget workspaces []
+;   (box :class "workspaces"
+;     :orientatio
+;     :space-evenly true
+;     ; :halign "start"
+;     :spacing 10
+;     (for entry in desktops-json
+;       (button :onclick "notify-send 'click' 'button ${entry}'"
+;       entry))))
+
+(defpoll FOLDER :interval "5s" 'echo "[\"a\",\"b\"]"')
+(defwidget folderview []
+  (box
+      (for name in FOLDER
+          (box name))))

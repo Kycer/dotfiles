@@ -11,16 +11,16 @@ import requests
 
 CONFIG = [
     # acg
-    {
-        "url": "https://www.dmoe.cc/random.php?return=json",
-        "key": "imgurl",
-        "tag": "ACG"
-    },
-    {
-        "url": "https://acg.toubiec.cn/random.php?ret=json",
-        "key": "imgurl",
-        "tag": "ACG"
-    },
+    # {
+    #     "url": "https://www.dmoe.cc/random.php?return=json",
+    #     "key": "imgurl",
+    #     "tag": "ACG"
+    # },
+    # {
+    #     "url": "https://acg.toubiec.cn/random.php?ret=json",
+    #     "key": "imgurl",
+    #     "tag": "ACG"
+    # },
     {
         "url": "https://api.ixiaowai.cn/api/api.php?return=json",
         "key": "imgurl",
@@ -90,11 +90,13 @@ def local():
 
 def setbg(path):
     os.system('feh --bg-max --randomize --bg-fill ' + path)
+    # os.system('swaybg -i $(find '+path+' -type f | shuf -n 1) -m fill')
 
 
 def run():
     if os.system('ping -c1 baidu.com') == 0:
-        download('')
+        # download('')
+        local()
     else:
         local()
 

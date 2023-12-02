@@ -12,7 +12,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 
-export CHROME_EXECUTABLE=/usr/bin/microsoft-edge-beta
+export CHROME_EXECUTABLE=/usr/bin/microsoft-edge-stable
 export ANDROID_NDK_HOME=$HOME/.android/sdk/ndk/android-ndk-r22b/
 export EDITOR=nvim
 
@@ -52,7 +52,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-session=${1:-i3}
+session=${1:-dwm}
 
 case $session in
     i3|i3wm           ) exec i3;;

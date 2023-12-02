@@ -1,7 +1,3 @@
-require("options")
-require("plugins")
-require("keymaps")
-require("utils")
+require("init")
 
-require("conf")
-require("colorscheme")
+-- vim.cmd "silent! colorscheme catppuccin"
