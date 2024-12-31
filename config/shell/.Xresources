@@ -3,8 +3,8 @@
 ! 175% - 120
 ! 200% - 192
 
-!Xft.dpi:                    96
 Xft.dpi:                    120
+! Xft.dpi:                    120
 Xft.rgba:                   rgba
 
 ! 关闭自动hint

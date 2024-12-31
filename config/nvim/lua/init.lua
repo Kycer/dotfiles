@@ -1,4 +1,6 @@
-vim.loader.enable()
-require("core.options")
-require("core.lazy-nvim")
-require("core.keymaps").setup()
+require('core.options')
+require('core.lazy')
+require('core.autocmds')
+require('keymaps')
+
+vim.cmd([[colorscheme tokyonight-storm]])

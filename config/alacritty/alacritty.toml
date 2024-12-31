@@ -1,0 +1,142 @@
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "Always"
+shape = "Beam"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 18
+
+[font.bold]
+family = "FiraCode Nerd Font Mono"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font Mono"
+
+[font.italic]
+family = "FiraCode Nerd Font Mono"
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
+
+[scrolling]
+history = 100000
+multiplier = 6
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[terminal.shell]
+program = "/bin/fish"
+
+[window]
+dynamic_title = true
+opacity = 0.8
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 110
+lines = 30
+
+[general]
+# builtin_box_drawing = true
+import = ["/home/kycer/.config/alacritty/themes/dracula.toml"]
+
+[terminal]
