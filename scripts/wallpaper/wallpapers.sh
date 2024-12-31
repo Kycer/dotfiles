@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # pkill -f wallpapers.sh &
+wm_name="$($HOME/.dotfiles/scripts/wm_name.sh)"
 
 wallpaper_dir="$HOME/Pictures/wallpaper"
 path="$HOME/.dotfiles/scripts/wallpaper"
@@ -11,7 +12,13 @@ fi
 
 function change () {
 	# feh --bg-max --randomize --bg-fill "$wallpaper_dir"
-	python "$path/wallpaper.py" -r
+
+  if [ $wm_name == 'wlroots' ]; then
+   killall swaybg
+   swaybg -i $(find $HOME/Pictures/wallpaper -type f | shuf -n 1) -m fill &
+  else
+  	python "$path/wallpaper.py" -r
+  fi
 }
 
 function init () {
